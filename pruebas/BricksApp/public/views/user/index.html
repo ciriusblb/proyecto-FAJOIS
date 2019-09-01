@@ -1,0 +1,102 @@
+<header class="header">
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-6">
+          <div class="log">Bricks App</div>
+      </div>
+      <div class="col-sm-6 hidden-xs">
+        <form>  
+          <div class="row">
+            <div class="col-sm-5">
+              <div class="form-group">
+                <input type="email" class="form-control" placeholder="Email Address" name="email" ng-model="vn.logueo.email">
+              </div>
+            </div>  
+            <div class="col-sm-5">
+              <div class="form-group">
+                <input type="password" class="form-control" placeholder="Password" name="password" ng-model="vn.logueo.password">
+              </div>
+            </div>
+            <div class="col-sm-2">
+              <div class="form-group">
+                <input type="submit" value="Iniciar Sesión" class="btn btn-default btn-header-login" ng-click="vn.sesion()">
+              </div>
+            </div>
+          </div>  
+        </form>
+      </div>
+    </div>
+  </div>
+</header>
+<article class="container">
+  <div class="row">
+    <div class="col-sm-8">
+      <div class="login">
+        <h3>¿Cuántos ladrillos entran en un metro cuadrado de muro?</h3>
+        <p>Nuestra respuesta será  tenemos que conocer las dimensiones de los ladrillos a apilar, la forma como se van a apilar (de cabeza o de soga), y el ancho de la junta del mortero.</p>
+        <h4>Ejemplo:</h4>
+        <p>para nuestro ladrillo King Kong de medidas (24cm*14cm*9cm) que los apilaremos de cabeza, con un espesor de junta de mortero de 1.5 cm ¿Cuántos ladrillos entran en un metro cuadrado de muro?</p> 
+        <h4>Usando la formula</h4>
+        <div><img src="img/formula0.jpg"></div>
+        <p>Numero de ladrillos = 1/((0.24+0.015)*(0.09+0.015))=37.35 unidades Unid/m2.</p>
+        <p>El número de ladrillos King kong apilados de cabeza con una junta de 1.5 cm  en un metros cuadrado de muro es 38 ladrillos.</p>
+        <p>Ahora podremos responder la pregunta del número de ladrillos (de cualquier tipo y con cualquier espesor de junta) apilados en un muro. Tema muy usado en las obras de construcción y como no  en nuestros metrados de obra y presupuestos.</p>            
+      </div>
+    </div>
+    <div class="col-sm-4">
+      <form name="formulario">
+        <h3><i class="fa fa-shield"></i> Registrate ahora</h3>
+        <div class="form-group">
+          <label class="control-label" for="">Nombres</label>
+          <div ng-class="{'has-error': formulario.nombre.$invalid && formulario.nombre.$dirty}">
+            <input type="text" class="form-control input-sm" placeholder="Nombres" name="nombre" id="nombre" ng-model="vn.registro.names" ng-change="vn.Capitalletter(vn.registro.names,1)" lyrics-only>
+            <span class="help-block has-error" ng-show="formulario.nombre.$invalid && formulario.nombre.$dirty">Escriba su Nombre</span>
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="control-label" for="">Apellidos</label>
+          <div ng-class="{'has-error': formulario.apellido.$invalid && formulario.apellido.$dirty}">
+            <input type="text" class="form-control input-sm" placeholder="Apellidos" name="apellido" id="apellido" ng-model="vn.registro.last_name" ng-change="vn.Capitalletter(vn.registro.last_name,2)" lyrics-only>
+            <span class="help-block has-error" ng-show="formulario.apellido.$invalid && formulario.apellido.$dirty">Escriba su apellido</span>
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="control-label" for="">Dirección de correo electrónico</label>
+          <div ng-class="{'has-error': formulario.email.$invalid && formulario.email.$dirty}" id="divEmail">
+            <input type="email" class="form-control input-sm" placeholder="Email Address" name="email" id="email" ng-model="vn.registro.email" ng-change="vn.Email()" ng-pattern="/^[-\w.%+]{1,64}@(?:[A-Z0-9-]{1,63}\.){1,125}[A-Z]{2,63}$/i" autocomplete="off">
+            <span class="help-block has-error">
+              <span ng-messages="formulario.email.$error" ng-if="formulario.email.$dirty">
+                <span ng-message="required">Escriba una dirección de correo electrónico</span>
+                <span ng-message="pattern">Por favor ingrese una dirección de correo electrónico válido</span>
+                <span id="span"></span>
+              </span>
+            </span>
+          </div>                              
+        </div>
+        <div class="form-group">
+          <label class="control-label" for="">Contraseña</label>
+          <div>
+            <input type="password" class="form-control input-sm" placeholder="Password" id="password" ng-model="vn.registro.password" autocomplete="off" pass-Validate>
+          </div>             
+        </div>
+        <div>
+          <div id="pswd_info">
+            <ul>
+              <li id="letter" class="invalid glyphicon glyphicon-remove">Al menos una letra</li>
+              <li id="capital" class="invalid glyphicon glyphicon-remove">Al menos una letra mayúscula</li>
+              <li id="number" class="invalid glyphicon glyphicon-remove">Al menos un número</li>
+              <li id="length" class="invalid glyphicon glyphicon-remove">Por lo menos 8 caracteres</li>
+              <li id="space" class="invalid glyphicon glyphicon-remove">be use [~,!,@,#,$,%,^,*,-,=,.,;,']</li>
+            </ul>
+          </div>
+        </div>   
+        <small>Al hacer clic en Registrarse, acepta nuestros Términos y ha leído nuestra Política de uso de datos, incluyendo nuestro uso de cookies</small>     
+        <div style="height:10px;"></div>
+        <div class="form-group">
+          <label class="control-label" for=""></label>
+          <input type="submit" class="btn btn-primary" value="Enviar" ng-click="vn.registrar()">
+        </div>   
+      </form>
+    </div>
+  </div>
+</article>

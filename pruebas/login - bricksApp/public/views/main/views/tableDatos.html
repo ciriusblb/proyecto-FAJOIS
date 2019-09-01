@@ -1,0 +1,39 @@
+ <li class="col-md-1 col-xs-2 list-group-item center" > {{vm.iniLim+$index+1}} </li>
+  <fieldset class="col-md-11  col-xs-10 list-group-item "    data-toggle="collapse" data-target=".{{nItem.item}}"  ng-click="vm.cambiar(vm.iniLim+$index)"  ui-sref="home.view({idBricks:vm.iniLim+$index+1})" >
+     {{nItem.descripcion}}
+     <span ng-click="">
+        <span ng-if="nItem.state==0"   class="glyphicon glyphicon-chevron-down"></span>
+        <span ng-if="nItem.state==1"  class="glyphicon glyphicon-chevron-up"></span>
+    </span>
+  </fieldset> 
+
+<div id="cajas"  class="collapse {{nItem.item}}">
+  <div class="col-xs-10 col-md-11 col-xs-offset-2 col-md-offset-1 list-inline nopadding list-group-item">
+    <li class="col-xs-4 col-md-4" >Cantidad de ladrillos</li>
+     <li class="col-xs-2 col-md-2 ">Und</li>
+     <li class="col-xs-2  col-md-2 ">{{nItem.cantidad[0]}}</li>
+     <li class="col-xs-2  col-md-2 ">{{nItem.cantidad[1]}}</li>
+     <li class="col-xs-2  col-md-2 ">{{nItem.cantidad[2]}}</li>
+  </div>
+  <div class=" col-xs-10 col-md-11 col-xs-offset-2 col-md-offset-1 list-inline nopadding list-group-item">
+    <li class="col-xs-4 col-md-4" >Cemento</li>
+     <li class="col-xs-2 col-md-2">Bolsas</li>
+     <li class="col-xs-2 col-md-2">{{nItem.cemento[0]}}</li>
+     <li class="col-xs-2 col-md-2">{{nItem.cemento[1]}}</li>
+     <li class="col-xs-2 col-md-2">{{nItem.cemento[2]}}</li>
+  </div>
+  <div class=" col-xs-10  col-md-11 col-xs-offset-2 col-md-offset-1 list-inline nopadding list-group-item">
+    <li class=" col-xs-4 col-md-4" >Arena</li>
+     <li class="col-xs-2 col-md-2">m3</li>
+     <li class="col-xs-2 col-md-2">{{nItem.arena[0]}}</li>
+     <li class="col-xs-2 col-md-2">{{nItem.arena[1]}}</li>
+     <li class="col-xs-2 col-md-2">{{nItem.arena[2]}}</li>
+  </div>
+  <div class="col-xs-10 col-md-11 col-xs-offset-2 col-md-offset-1 list-inline nopadding list-group-item" >
+    <li class="col-xs-4 col-md-4" >Agua</li>
+     <li class="col-xs-2 col-md-2">m3</li>
+     <li class="col-xs-2 col-md-2">{{nItem.agua[0]}}</li>
+     <li class="col-xs-2 col-md-2">{{nItem.agua[1]}}</li>
+     <li class="col-xs-2 col-md-2">{{nItem.agua[2]}}</li>
+  </div>
+</div>

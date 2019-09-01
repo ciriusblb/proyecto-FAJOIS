@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>BricksApp</title>
+    <link rel="stylesheet" type="text/css" href="content/css/bootstrap.css">
+    <link rel="stylesheet" type="text/css" href="content/css/app.css">
+    <link rel="stylesheet" type="text/css" href="content/css/toastr.min.css">
+</head>
+<body ng-app="bricksApp">
+  <header class="container-fluid contenedor" style="margin-bottom:20px;">
+    <section class="col-md-8 titulo" >
+      <img class="logo"  src="content/img/logo.png">
+      <h1 class="ladrillo">Ladrillo en muros</h1>
+    </section>
+    <section class="col-md-2 usuario">
+      <ul class="nav nav-tabs">
+        <li class="glyphicon glyphicon-user icon-user"></li>
+        <li class="user">hola</li>
+        <li class="user"></li>
+      </ul>
+    </section>
+    <section class="col-md-2">
+  		<div class="btn-group cerrar" role="group">
+  		  <button type="button" class="btn btn-default">Cerrar sesión</button>
+  		</div>
+  	</section>
+  </header>
+  <main class="container-fluid" ng-controller="TabsCtrl as vn">
+    <section class="col-md-6" ng-controller="ItemsCtrl as vm">
+      <div class="row" style="margin-bottom:20px;">
+        <div class="col-md-12">
+          <div class="input-group">
+            <span class="input-group-btn">
+              <button class="btn btn-default" type="button">Buscar</button>
+            </span>
+            <input type="text" class="form-control" ng-model="buscar.descripcion">
+          </div>
+        </div>
+      </div>
+      <div class="tabla" style="margin-bottom:10px;">
+        <table id="table" class="table table-bordered table-responsive table-hover">
+          <thead class="center">
+            <tr class="active">
+              <td rowspan="2">Item</td>
+              <td rowspan="2">Descripción</td>
+              <td rowspan="2">Und</td>
+              <td colspan="3">Posición</td>
+            </tr>
+            <tr class="active">
+              <td>Soga</td>
+              <td>Cabeza</td>
+              <td>Canto</td> 
+            </tr>
+          </thead>
+          <tbody>
+            <tr ng-repeat="nItem in vm.items | orderBy:ordenSeleccionado | filter:buscar" class="clickable" ng-click="cambiar()" data-toggle="collapse" data-target=".{{nItem.item}}"> 
+              <td>{{nItem.item}}</td>
+              <td  class="slide" colspan="5">
+                <p>{{nItem.descripcion}}
+                  <span>
+                    <span ng-if="nItem.state==0" class="glyphicon glyphicon-chevron-down"></span>
+                    <span ng-if="iItem.state==1" class="glyphicon glyphicon-chevron-up"></span>
+                  </span>   
+                </p>
+                <div class="collapse {{nItem.item}}">
+                  <table class="table">
+                    <tr>
+                      <td style="width:30%;">Cantidad de ladrillos</td>
+                      <td>Und</td>
+                      <td>{{nItem.cantidad[0]}}</td>
+                      <td>{{nItem.cantidad[1]}}</td>
+                      <td>{{nItem.cantidad[2]}}</td>
+                    </tr>
+                    <tr>
+                      <td>Cemento</td>
+                      <td>Bolsas</td>
+                      <td>{{nItem.cemento[0]}}</td>
+                      <td>{{nItem.cemento[1]}}</td>
+                      <td>{{nItem.cemento[2]}}</td>
+                    </tr>
+                    <tr>
+                      <td>Arena</td>
+                      <td>m3</td>
+                      <td>{{nItem.arena[0]}}</td>
+                      <td>{{nItem.arena[1]}}</td>
+                      <td>{{nItem.arena[2]}}</td>
+                    </tr>
+                    <tr>
+                      <td>Agua</td>
+                      <td>m3</td>
+                      <td>{{nItem.agua[0]}}</td>
+                      <td>{{nItem.agua[1]}}</td>
+                      <td>{{nItem.agua[2]}}</td>
+                    </tr>
+                  </table> 
+                </div>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="panel panel-info" ng-show="vn.showLeyenda1">
+        <div class="panel-heading">
+          <h3 class="panel-title">Fórmula</h3>
+        </div>
+        <div class="panel-body leyenda">
+         <div class="col-md-6">
+         <img src="content/img/Captura.PNG">
+         </div>
+         <table class="col-md-6">
+            <tr ng-repeat="tr in vn.leyenda1">
+              <td>{{tr.sigla}}</td>
+              <td>=</td>
+              <td> {{tr.signi}}</td>
+            </tr>
+          </table>
+        </div>
+      </div>  
+      <div class="panel panel-info" ng-show="vn.showLeyenda2">
+        <div class="panel-heading">
+          <h3 class="panel-title">Fórmula</h3>
+        </div>
+        <div class="panel-body leyenda">
+         <div class="col-md-6">
+         <img src="content/img/Captura5.PNG">
+         </div>
+         <table class="col-md-6">
+            <tr ng-repeat="tr in vn.leyenda2">
+              <td>{{tr.sigla}}</td>
+              <td>=</td>
+              <td> {{tr.signi}}</td>
+            </tr>
+          </table>
+        </div>   
+      </div>
+    </section>
+    <section class="col-md-6">
+      <ul class="nav nav-pills">
+        <li><a class="glyphicon glyphicon-file icon" id="btnnuevo"></a></li>
+        <li><a class="glyphicon glyphicon-pencil icon" id="btneditar" ></a></li>
+        <li><a class="glyphicon glyphicon-trash icon" id="btneliminar"></a></li>
+      </ul>
+      <ul class="nav nav-tabs">
+          <li role="presentation" class="active" ng-class="{ active: isSet(1)}"><a ui-sref="Cantidad" ng-click="setTab(1)">Cantidad</a></li>
+          <li role="presentation" ng-class="{active:isSet(2)} "><a ui-sref="Mezcla" ng-click="setTab(2)">Mezcla</a></li>
+      </ul>
+      <div class="ventana" style="border:1px solid lightgray; margin-bottom:30px;">
+      <div ui-view></div>
+      </div>
+      </div>
+      <div class="btn-group btn-group-justified" role="group" >
+        <div class="btn-group" role="group">
+          <button type="button"  class="btn btn-default" ng-click="vn.guardar()" style="background: #337ab7; color: white;">Guardar</button>
+        </div>
+        <div class="btn-group" role="group">
+          <button type="button" class="btn btn-default" ng-click="vn.cancelar()">Cancelar</button>
+        </div>
+      </div>
+    </section>
+  </main>
+    <!-- script -->
+    <script type="text/javascript" src="scripts/jquery.js"></script>
+    <script type="text/javascript" src="scripts/bootstrap.js"></script>
+    <!-- angular -->
+    <script type="text/javascript" src="scripts/angular.min.js"></script>
+    <script type="text/javascript" src="scripts/toastr.min.js"></script>
+    <script type="text/javascript" src="scripts/angular-messages.min.js"></script>
+    <script type="text/javascript" src="scripts/angularUI-router.js"></script>
+    <!-- apliaction script -->
+    <script type="text/javascript" src="app/app.js"></script>
+    <!--controllers-->
+    <script type="text/javascript" src="app/items/itemsCtrl.js"></script>
+    <script type="text/javascript" src="app/controllers/tabsCtrl.js"></script>
+    <!-- directives-->
+    <script type="text/javascript" src="app/directives/directiveNumber.js"></script>
+</body>
+</html>

@@ -1,0 +1,108 @@
+<div class="col-md-12" id="cantidad">
+<div class="form-group row"  >
+  <label  class="col-md-2 col-form-label" style="margin-top:5px;">Nombre :</label>
+  <div class="col-md-10" id="nombre">
+    <input type="text" class="form-control"  required ng-keydown="vm.saltar1($event,0)"  placeholder="Nombre Del Proyecto" ng-model="vm.itemEdit.descripcion" maxlength="50">
+  </div>
+</div>
+
+<div class="container-fluid thumbnail form-group">
+  <div class="nav col-md-12">
+    <div >
+      <div class="col-xs-7">L : Longitud del Ladrillo</div>
+      <div class="col-xs-2 subfila" id="longitud" data-trigger="focus"  data-toggle="popover" data-placement="right">
+        <input type="text" class="form-control input-sm" style="width: 63px;" required name="longitud" ng-keydown="vm.saltar1($event,1)" ng-blur="vm.decimales('longitud')"  ng-model="vm.itemEdit.longitud" max="100" numbers-float autocomplete="off">
+        <span class="form-control-feedback" id="not-longitud"></span>cm
+        <!-- <span id="popover" ></span> -->
+      </div>
+      <!-- <div class="col-xs-3"></div> -->
+    </div>
+    <div>
+      <div class="col-xs-7">A : Ancho del Ladrillo</div>
+      <div class="col-xs-2 subfila" id="ancho" data-trigger="focus"  data-toggle="popover" data-placement="right">
+        <input type="text" class="form-control input-sm" style="width: 63px;" required name="ancho" ng-keydown="vm.saltar1($event,2)" ng-blur="vm.decimales('ancho')" ng-model="vm.itemEdit.ancho" max="100" numbers-float autocomplete="off">
+         <span class="form-control-feedback" id="not-ancho"></span>cm
+          <!-- <span id="" ></span> -->
+      </div>
+    </div>
+    <div>
+      <div class="col-xs-7">H : Altura del Ladrillo</div>
+      <div class="col-xs-2 subfila"  id="altura" data-trigger="focus"  data-toggle="popover" data-placement="right">
+        <input type="text" class="form-control input-sm" style="width: 63px;" ng-keydown="vm.saltar1($event,3)" ng-blur="vm.decimales('altura')" required name="altura" max="100" ng-model="vm.itemEdit.altura" numbers-float autocomplete="off">
+        <span class="form-control-feedback" id="not-altura"></span>cm
+      </div>
+      
+    </div>
+    <div>
+      <div class="col-xs-7">Jh: Espesor de la junta Horizontal</div>
+      <div class="col-xs-2 subfila" id="espesor_horizontal" data-trigger="focus"  data-toggle="popover" data-placement="right">
+        <input type="text" class="form-control input-sm" style="width: 63px;" ng-keydown="vm.saltar1($event,4)" ng-blur="vm.decimales('espesor_horizontal')" required name="espesor_horizontal" ng-model="vm.itemEdit.espesor_horizontal" max="5" numbers-float autocomplete="off">
+        <span class="form-control-feedback" id="not-espesor_horizontal"></span>cm
+      </div>
+      
+    </div>
+    <div>
+      <div class="col-xs-7">Jv: Espesor de la junta Vertical</div>
+      <div class="col-xs-2 subfila" id="espesor_vertical" data-trigger="focus"  data-toggle="popover" data-placement="right">
+        <input type="text" class="form-control input-sm" style="width: 63px;" ng-keydown="vm.saltar1($event,5)" ng-blur="vm.decimales('espesor_vertical')" required  name="espesor_vertical" ng-model="vm.itemEdit.espesor_vertical" max="5" numbers-float autocomplete="off">
+         <span  class="form-control-feedback" id="not-espesor_vertical"></span>cm
+      </div>
+     
+    </div>
+    <div>
+      <div class="col-xs-7">Porcentaje de Desperdicio</div>
+      <div class="col-xs-2 subfila" id="cantidad_desperdicio" data-trigger="focus"  data-toggle="popover" data-placement="right">
+        <input type="text" class="form-control input-sm" style="width: 63px;" ng-keydown="vm.saltar1($event,6)" ng-blur="vm.decimales('cantidad_desperdicio')" required  name="cantidad_desperdicio" max="15" ng-model="vm.itemEdit.cantidad_desperdicio" numbers-float autocomplete="off">
+        <span class="form-control-feedback" id="not-cantidad_desperdicio"></span>cm
+      </div>
+    </div>
+  </div>
+  <div style="text-align:center;">Sin desperdicio + % de desperdicio</div>
+  <div class="form-group">
+    <div class="list-group col-md-12">
+      <div class="fila2">
+        <span class="col-xs-2 fila"><p>Soga</p><p>=</p></span>
+        <span class="fila col-xs-4"><p>largo por alto</p><p>=</p></span>
+        <div class="col-xs-6 fila2">
+          <div class="fila2" style="width: 100px;">
+            <span>{{vm.itemResult.c_soga[0]}}</span>
+            <span>Und</span>
+          </div>
+          <div class="fila2" style="width: 100px;">
+            <span>{{vm.itemResult.c_soga[1]}}</span>
+            <span >Und</span>
+          </div> 
+        </div>
+      </div>
+      <div class="fila2">
+        <span class="col-xs-2 fila"><p>Cabeza</p><p>=</p></span>
+        <span class="fila col-xs-4"><p>ancho por alto</p><p>=</p></span>
+        <div class="col-xs-6 fila2">
+          <div class="fila2" style="width: 100px;">
+            <span>{{vm.itemResult.c_cabeza[0]}}</span>
+            <span>Und</span>
+          </div>
+          <div class="fila2" style="width: 100px;">
+            <span>{{vm.itemResult.c_cabeza[1]}}</span>
+            <span >Und</span>
+          </div> 
+        </div>
+      </div>
+      <div class="fila2">
+        <span class="col-xs-2 fila"><p>Canto</p><p>=</p></span>
+        <span class="fila col-xs-4"><p>largo por ancho</p><p>=</p></span>
+        <div class="col-xs-6 fila2">
+          <div class="fila2" style="width: 100px;">
+            <span>{{vm.itemResult.c_canto[0]}}</span>
+            <span>Und</span>
+          </div>
+          <div class="fila2" style="width: 100px;">
+            <span>{{vm.itemResult.c_canto[1]}}</span>
+            <span >Und</span>
+          </div> 
+        </div> 
+      </div>
+    </div>
+  </div>
+</div>
+</div>

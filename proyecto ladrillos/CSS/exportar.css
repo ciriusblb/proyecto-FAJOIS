@@ -1,0 +1,714 @@
+*{
+    margin: 0;
+}
+.map{
+     position: fixed;
+font-family: serif;
+  display: flex;
+  visibility: hidden;
+    width: 100%; 
+    height: 100%;
+   background: rgba(0,0,0,0.8);
+   top: 0;
+   left: 0;
+   z-index: 100;
+}
+.map .leyenda {
+    color: black;
+    font-weight: bold;
+    display: block;
+    background: white;
+    height: 120px;
+    margin-top: 50px;
+    margin-left: 0px;
+    box-shadow: 0px 0px 0px #333 inset;
+    width: 98%;
+}
+.map .leyenda .formula1 {
+    margin-top: 20px;
+    float: left;
+    margin-left: 10px;
+    display: flex;
+}
+.map .leyenda .datos1 {
+    margin-left: 20px;
+    margin-top: 10px;
+}
+.map2 .leyenda:first-child {
+    float: right;
+    color: black;
+    font-weight: inherit;
+    display: block;
+    background: white;
+    height: 120px;
+    margin-top: -256px;
+    margin-left: 0px;
+    box-shadow: 0px 0px 0px #333 inset;
+    width: 58%;
+}
+.map2 .leyenda:last-child {
+    float: right;
+    color: black;
+    font-weight: inherit;
+    display: block;
+    background: white;
+    height: 120px;
+    margin-top: -120px;
+    margin-left: 0px;
+    box-shadow: 0px 0px 0px #333 inset;
+    width: 58%;
+}
+.map2 .leyenda .formula1 {
+    margin-top: 20px;
+    float: left;
+    margin-left: 10px;
+    display: flex;
+}
+.map2 .leyenda .datos1 {
+    margin-left: 20px;
+    margin-top: 10px;
+}
+.map2{
+     position: fixed;
+font-family: serif;
+  visibility: hidden;
+    width: 100%; 
+    height: 100%;
+   background: rgba(0,0,0,0.8);
+   top: 0;
+   left: 0;
+   z-index: 100;
+}
+.abrir-r{
+    visibility: visible;  
+}
+.map .configuracion{
+    width: 25%;
+    height: 100%;
+}
+.map .conteiner{
+    margin: 20px 20px 20px 20px;
+   background: #DCDCDC;
+    padding: 15px 5px;
+    height: 87%;
+}
+.map .preliminar{
+    width: 100%;
+    height: 10%;
+    display: flex;
+    align-items: center;
+    text-align: center;
+}
+.map .preliminar h3{
+     margin: auto;
+}
+.map .settings{
+    width: 100%;
+    height: 58%;
+    display: flex;
+    margin-top: 25px;
+}
+.map .settings ul{
+    width: 100%;
+    padding: 0;
+}
+.map .settings ul li{
+    list-style: none;
+    margin-top: 5px;
+    font-size: 17px;
+}
+.map .settings ul:last-child{
+    position: relative;
+    right: 20px;
+}
+.map .settings ul:nth-child(2) li:first-child{
+    width: 140px;
+    font-size: 16px;
+}
+.map .settings ul:nth-child(2) select{
+    width: 140px;
+    background:  #DCDCDC;
+    font-size: 16px;
+    border: none;
+}
+.map .botones3{
+    width: 100%;
+    height: 28%; 
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+}
+.map .botones3 button{
+    width: 49%;
+    height: 30px;
+    font-weight: bold;
+    border: none;
+    cursor: pointer;
+}
+.botones3 button:hover {
+    cursor: pointer;
+    background: rgba(0,0,0,0.5);
+    color: white;
+}
+.botones3 button:first-child{
+   background: 	#FFD700;
+color: white;
+}
+.botones3 button:first-child:hover{
+    background: rgba(0,0,0,0.5);
+}
+/*********************+++++++++++++++++++*/
+.map2 .configuracion{
+    width: 50%;
+    height: 30%;
+    margin: 0 auto;
+}
+.map2 .conteiner{
+    margin: 20px;
+   background: #DCDCDC;
+    padding: 10px 20px;
+}
+.map2 .preliminar{
+    width: 100%;
+    text-align: center;
+}
+.map2 .settings{
+    width: 64%;
+    display: flex;
+    margin: 15px auto;
+}
+.map2 .settings ul li{
+    list-style: none;
+    font-size: 18px;
+}
+.map2 .settings ul:nth-child(2) select{
+    width: 150px;
+    background:  #DCDCDC;
+    font-size: 16px;
+    border: none;
+}
+.map2 .botones3{
+    width: 100%;
+    text-align: center;
+}
+.map2 .botones3 button{
+    width: 40%;
+    height: 30px;
+    font-weight: bold;
+    border: none;
+}
+/*********************+++++++++++++++++++*/
+.map .bosquejo{
+    width: 75%;
+    height: 100%;
+}
+.map .caja{
+    width: 24cm;
+    height: 16cm;
+    background: gray;
+    overflow: auto;
+    margin: 20px auto;
+}
+
+.map .caja .primero{
+      width: 23cm;
+padding: 15px 0;
+    margin: auto;
+}
+
+.map .caja .primero .segundo{
+    background: white;
+    margin: auto;
+    margin-bottom: 15px;
+    width: 21cm;
+    height: 29.7cm;
+    
+}
+.map .caja .primero .segundo .tercero{
+    padding: 1cm 1cm 4cm 2cm;
+    
+}
+
+.map .tercero{
+}
+.map .top{
+    display: flex;
+    margin-bottom: 10px;
+}
+.map .pegar{
+    display: flex;
+   align-items: center;
+}
+.map .icon-picture{
+    padding: 20px;
+    border-radius: 3px;
+    font-size: 20px;
+    background: #DCDCDC;
+    text-align: center;
+}
+.thumb{ 
+width: 90px;
+    height: 90px;
+    border-radius: 3px;
+}
+#files{
+    position: absolute;
+    width: 90px;
+    height: 90px;
+    opacity: 0;
+}
+#files:hover {
+    cursor: pointer;
+}
+.map .completar{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+}
+.map .completar input{
+    width: 80%;
+    text-align: center;
+    border: none;
+    font-size: 15px;
+    height: 20px;
+}
+
+.map .mid{
+    margin-bottom: 10px;
+}
+.map .mid1{
+    width: 100%;
+    background: #DCDCDC;
+    text-align: center;
+}
+.map .mid2{
+    display: flex;
+}
+.map .mid2 ul li,.bot ul li{
+    list-style: none;
+       font-size: 17px;
+    margin: 0 0 0 -40px;
+}
+.map .mid2 div:first-child{
+    width: 35%;
+}
+.map .mid2 div:nth-child(2){
+    width: 65%;
+}
+.map .mid2 div:nth-child(2) li{
+    display: flex;
+}
+.map .mid2 div:nth-child(2) li input{
+    position: relative;
+    left: 4%;
+    width: 94%;
+    border: none;
+    font-size: 15px;
+}
+.map .mid2 div:nth-child(2) li input[type=date]{
+     width: 93.8%;
+}
+.map #date{
+    position: relative;
+    float: right;
+    top: 4.3cm;
+}
+.map #date2{
+    position: relative;
+    float: right;
+    top: 2.4cm;
+}
+.map2 #date{
+    position: relative;
+    float: right;
+    top: 3.5cm;
+}
+.map2 #date2{
+    position: relative;
+    float: right;
+    bottom: 5cm;
+    left: 14.4cm;
+}
+/* ----------------------------------------*/
+
+
+.map2 .bosquejo{
+    width: 100%;
+    height: 70%;
+}
+.map2 .caja{
+    width: 34cm;
+    height: 11cm;
+    background: gray;
+    overflow: auto;
+    margin: 20px auto;
+}
+
+.map2 .caja .primero{
+      width: 31cm;
+padding: 15px 0;
+    margin: auto;
+}
+
+.map2 .caja .primero .segundo{
+    background: white;
+    margin: auto;
+    margin-bottom: 15px;
+    height: 21cm;
+    width: 29.7cm;
+}
+.map2 .caja .primero .segundo .tercero{
+    padding: 2cm 1cm 4cm 1cm; 
+}
+.map2 .top{
+    display: flex;
+    margin-bottom: 10px;
+}
+.map2 .icon-picture{
+   width: 90px;
+    height: 90px;
+    border-radius: 3px;
+    font-size: 20px;
+    background: #DCDCDC;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.thumb{ 
+width: 90px;
+    height: 90px;
+    border-radius: 3px;
+}
+.map2 .completar{
+    width: 82%;
+}
+.map2 .completar input{
+    width: 100%;
+    text-align: center;
+    border: none;
+    font-size: 15px;
+    height: 20px;
+    margin-bottom: 8px;
+}
+
+.map2 .mid{
+    margin-bottom: 10px;
+}
+.map2 .mid1{
+    width: 100%;
+    background: #DCDCDC;
+    text-align: center;
+}
+.map2 .mid2{
+    display: flex;
+}
+.map2 .mid2 ul li{
+    list-style: none;
+       font-size: 17px;
+    margin: 0 0 0 -40px;
+}
+.map2 .mid2 div:first-child{
+    width: 20%;
+}
+.map2 .mid2 div:nth-child(2){
+    width: 65%;
+}
+.map2 .mid2 div:nth-child(2) li{
+    display: flex;
+}
+.map2 .mid2 div:nth-child(2) li input{
+    position: relative;
+    left: 4%;
+    width: 94%;
+    border: none;
+    font-size: 15px;
+}
+.map2 .mid2 div:nth-child(2) li input[type=date]{
+     width: 93.8%;
+}
+
+/* ----------------------------------------*/
+.bosquejo .bot input, .segundo input{
+  border-style: none;
+  width: 45px;
+  background: white;
+}
+.map .bot1 {
+    background: #DCDCDC;
+}
+.map .bot2-3{
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+.map .bot2{
+  width: 77.5%;
+}
+.map .bot3{
+  width: 23.5%;
+}
+.map .bot4 .cant30{
+  font-size: 17px;
+  margin-bottom: 15px;
+ margin-left: 23%;
+    font-family: inherit;
+}
+.map .bot4{
+    width: 100%;
+}
+.map .bot4 .cant3 ul{
+       margin-left: 40px;
+    margin-right: 10px;
+}
+
+/*---*/
+.map .bot5, .map .bot6, .map .bot7{
+    font-size: 16px;
+     margin-left: -10px;
+}
+.map .bot5{
+    margin-bottom: 10px;
+}
+.map .bot5 li{
+    margin-bottom: 5px;
+}
+.map .bot5 li:first-child{
+    margin-left: -40px;
+    width: 100%;
+}
+.map .bot5 li:last-child{
+   margin-left: -40px;
+}
+.map .bot6 li{
+  list-style: none; 
+}
+.map .bot6 li input{
+}
+.map .bot5 pre{
+    font-family: inherit;
+    margin-left: 20%;
+}
+.map .bot6{
+    margin-bottom: 10px;
+}
+
+.map .bot7 .tabla2 {
+    margin-left: 40px;
+}
+.bosquejo #mezclaa{
+    margin-left: 7px;
+}
+#resultarena{
+    border-bottom: 1px solid black;
+}
+#resulrendagua12{
+    border-bottom: 1px solid black;
+}
+.map .rendimientos{
+  margin-left: 40px;
+}
+.bosquejo .rendimientos input{
+}
+.map .bot7 li{
+    list-style: none;
+}
+.map .resultados{
+    margin-left: 40px;
+}
+/*******************+----------------------------------------------*/
+.map2 .bot1 {
+    background: #DCDCDC;
+}
+.map2 .bot2-3{
+  width: 45%;
+  display: flex;
+  justify-content: space-between;
+}
+.map2 .bot2{
+  width: 77.5%;
+}
+.map2 .bot3{
+  width: 23.5%;
+}
+.map2 .bot4 .cant30{
+  font-size: 17px;
+  margin-bottom: 15px;
+    margin-left: 20%;
+    font-family: inherit;
+}
+.map2 .bot4{
+    width: 70%;
+}
+.map2 .bot4 .cant3 ul{
+       margin-left: 40px;
+    margin-right: 10px;
+}
+
+/*---*/
+.map2 .bot5, .map2 .bot6, .map2 .bot7{
+    font-size: 17px;
+    margin-left: 0px;
+}
+.map2 .bot5{
+    margin-bottom: 10px;
+}
+.map2 .bot5 li{
+    margin-bottom: 5px;
+}
+.map2 .bot5 li:first-child{
+    margin-left: -40px;
+    width: 100%;
+}
+.map2 .bot5 li:last-child{
+   margin-left: 100px;
+}
+.map2 .bot6 li{
+  list-style: none; 
+}
+.map2 .bot6 li input{}
+.map2 .bot5 pre{
+    font-family: inherit;
+    margin-left: 13%;
+}
+.map2 .bot6{
+    margin-bottom: 10px;
+}
+.map2 .bot7 .tabla2 {
+    display: inline-block;
+    position: relative;
+    right:0.5cm;
+}
+.map2 pre:nth-child(5) {
+    width: 200px;
+    position: relative;
+    right: 45px;
+}
+.map2 .tabla3{
+    margin-left: 20px;
+}
+.map2 .rendimientos{
+  margin-left: 40px;
+    position: relative;
+    bottom: 170px;
+    width: 50%;
+}
+.rendimientos input{
+}
+.map2 .bot7 li{
+    list-style: none;
+}
+.map2 .bot7 .rendimientos{
+    float: right;
+    position: relative;
+    bottom: 400px;left: 50px;
+    
+}
+.map2 .resultados{
+    position: relative;
+    bottom: 180px;
+    left: 562px;
+}
+/* ----*/
+@media (max-width:800px) {
+.map2{
+    position: absolute;
+    height: 100%;
+    }
+.map{
+  display: flex;
+  flex-wrap: wrap;
+    position: absolute;
+    height: 100%;
+}
+.map .configuracion{
+    width: 75%;
+    margin: auto;
+    margin-top: 60px;
+    height: 35%;
+}
+.map .conteiner{
+    padding: 15px 70px;
+    height: 80%;
+}
+.map .preliminar{
+    height: 10%;
+}
+.map .preliminar h3{
+     margin: 10px;
+}
+.map .settings ul{
+    height: 100%;
+    }
+.map .settings ul li{
+    margin-top: 10px;
+}
+.map .botones3{
+    height: 25%;
+}
+.map .botones3 button{
+    width: 50%;
+} /*********************+++++++++++++++++++*/
+.map .bosquejo{
+    width: 100%;
+    height: 60%;
+}
+.map .caja{
+    width: 20cm;
+    height: 17cm;
+    overflow: scroll;
+    margin: 0px auto;
+}
+.map .caja .primero{
+    padding: 15px;
+}
+.map2 .configuracion{
+    width: 85%;
+    margin: auto;
+    margin-top: 100px;
+}
+.map2 .conteiner{
+    padding: 15px;
+    height: 80%;
+}
+.map2 .preliminar{
+    height: 10%;
+}
+.map2 .preliminar h3{
+     margin: 10px;
+}
+.map2 .settings ul{
+    height: 100%;
+    }
+.map2 .settings ul li{
+    margin-top: 10px;
+}
+.map2 .botones3{
+    height: 25%;
+}
+.map2 .botones3 button{
+    width: 50%;
+} /*********************+++++++++++++++++++*/
+.map2 .bosquejo{
+    width: 100%;
+    height: 60%;
+}
+.map2 .caja{
+    width: 20cm;
+    height: 18cm;
+    overflow: auto;
+    margin: 0px auto;
+}
+.map2 .caja .primero{
+    padding: 15px;
+}
+.map2 .resultados{
+    width: 400px;
+    position: relative;
+    bottom: 200px;
+    left: 60px;
+}
+}
+
+
+

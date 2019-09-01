@@ -1,0 +1,219 @@
+*{
+    margin: 0;
+}
+
+body a{
+    cursor: pointer;
+}
+.data fieldset{
+    cursor: pointer;
+}
+.nomargin{
+    margin: 0;
+    color: black;
+}
+.nopadding{
+    padding: 0;
+}
+.contenedor {
+    background: #333;
+    color: white;
+}
+.contenedor a{
+    margin-right: 10px;
+    color: white
+}
+.contenedor  ul.nav li>a:hover, .contendedor ul.nav li>a:focus { 
+    background-color: green !important; }
+.titulo{
+    display: flex;
+}
+.logos{
+    width: 58px;
+    height: 50px;
+}
+.ladrillo {
+    color: #fff;
+    margin-left: 30px;
+    margin-top: 5px;
+}
+.usuario{
+    color: white;
+}
+.icon-user{
+    font-size: 50px;
+}
+.cerrar{
+	margin-top: 10px;
+    float: right;
+}
+.cuerpo1, .cuerpo2{
+    background: lightgray;
+    height: 100px;
+}
+
+.tabla{
+    border: 1px solid lightgray;
+    height: 300px;
+    overflow: auto;
+    margin-bottom: 20px;
+}
+
+.table{
+    margin: 0;
+}
+.center{
+    text-align: center;
+    font-weight: bold;
+}
+.leyenda{
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+}
+.glyphicon-chevron-down{
+    float: right;
+}
+.glyphicon-chevron-up{
+    float: right;
+}
+
+
+
+
+
+
+.icon{
+    font-size: 35px;
+    color: black;
+}
+.fila{
+    display:flex;
+    justify-content: space-between;
+}
+.fila2{
+    display: flex;
+}
+.fila3{
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+.subfila,.subfila2{
+    display: flex;
+}
+.subfila div:first-child{
+    width: 70px;
+    display: flex;
+    justify-content: space-between;
+}
+.subfila div:last-child{
+    width: 120px;
+    display: flex;
+    justify-content: space-between;
+    margin-left: 10px;
+}
+.subfila2 div{
+    display: flex;
+    margin-right: 10px;
+}
+.input{
+    width: 50px;
+}
+.ventana{
+    height: 400px;
+    overflow: auto;
+}
+.padin{
+    padding: 10px;
+}
+/*.slash{
+    font-size: 17px;
+}
+
+.d-linea{
+    margin-top: 10px;
+    display: flex;
+}
+.d-linea li{
+    list-style: none;
+    height: 35px;
+}
+.d-linea ul{
+    padding: 0;
+}
+.d-linea input{
+    width: 50px;
+    padding: 0;
+    height: 30px;
+}
+.d-margin{
+    margin:20px 0px 0px 0px;
+}
+
+.r1,.r2{
+    background: #ccc;
+    border-radius: : #ccc 1px solid;
+}
+.r2 input{
+    width: 20px;
+    border: none;
+    background:  #ccc;
+}*/
+
+
+/* Panel*/
+.menu {
+    display: inline-block;
+    width: 5rem;
+    height: 5rem;
+    border-radius:200px;
+    text-align: center;
+}
+
+
+/*.menu {
+    z-index: 100;
+    background: #333;
+    width: 8rem;
+    height: 8rem;
+    position: absolute;
+    top: 50%;
+    left: 0%;
+    border-radius:200px;
+    color: white;
+    text-align: center;
+    transition: left 0.7s; 
+}*/
+.menu span{
+    color: white;
+    font-size: 4rem;
+}
+
+.menu:hover{
+    background: green !important;
+}
+
+.ver-menu{
+    background: green;
+}
+.left-panel{
+    z-index: 100;
+    width: 30%;
+    height: 91.5%;
+    background-color:rgba(4, 119, 71, 0.78);
+    position:absolute;
+    top: 8.5%;
+    left: -30%;
+    text-align: center;
+    align-items: center;
+    transition: left 0.65s;
+}
+.panel-user{
+    width: 200px;
+    height: 200px;
+}
+.ver-panel{
+    left:0;
+}
+

@@ -1,0 +1,29 @@
+
+
+#pswd_info {
+    background: none repeat scroll 0 0;
+    color: #fff;
+  
+}
+#pswd_info ul {
+    list-style: outside none none;
+}
+#pswd_info ul li {
+width: 100%;
+}
+
+.valid {
+    color: green;
+}
+
+.invalid {
+    color: red;
+}
+
+
+#pswd_info {
+    display:none;
+}
+.show{
+	display: block;
+}

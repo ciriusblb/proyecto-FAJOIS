@@ -1,0 +1,137 @@
+  <!-- Modal -->
+<div class="pdf"   ng-class="{ 'pdf-horiz': vmPdf.cabecera.diseno=='landscape' }" >
+  <link rel="stylesheet" type="text/css" href="/css/index.css">
+    <div class="modal-content  optionsPdf" ng-class="{ 'option-horiz': vmPdf.cabecera.diseno=='landscape' }">
+        <div class="modal-header" >
+            <h1>Reporte</h1>
+        </div>
+      	<div >       
+          <label class="col-xs-12">Formato</label>
+            <ul class="nav nav-pills">
+                <li ng-class="{'active':vmPdf.cabecera.tipo=='doc'}"><a ng-click="vmPdf.formato(0)"><img src="/img/word.ico"></a></li>
+                <li ng-class="{'active':vmPdf.cabecera.tipo=='xls' }"><a ng-click="vmPdf.formato(1)"><img src="/img/excel.ico"></a></li>
+                <li ng-class="{'active':vmPdf.cabecera.tipo=='pdf' }"><a ng-click="vmPdf.formato(2)"><img src="/img/pdf.ico"></a></li>
+             </ul>
+        </div>
+        <div >
+            <label class="col-xs-12">Opciones del Reporte</label>
+            <span class="col-xs-offset-1">Tamaño de Papel A4 (210 x 297 mm)</span>
+            <div class="form-group row" >
+              <span  class="col-xs-offset-1 col-xs-3">Diseño</span>
+              <div class="col-xs-4"   >
+                <select ng-model="vmPdf.cabecera.diseno"  class="form-control">
+                  <option value="portrait">Vertical</option>
+                  <option value="landscape" >Horizontal</option>
+                </select>
+              </div>
+            </div>
+            <div class="form-group row" >
+              <span  class="col-xs-offset-1 col-xs-3">Color</span>
+              <div class="col-xs-4"   >
+                <select class="form-control">
+                  <option>Blanco</option>
+                  <option>Negro</option>
+                </select>
+              </div>
+            </div>
+        </div>
+        <div class="btn-group btn-group-justified" role="group" >
+          <div class="btn-group"  role="group" >
+            <button type="button" class="btn btn-default" ng-click="vmPdf.createPdf()">Exportar</button>
+
+          </div>
+          <div class="btn-group" role="group">
+            <button type="button" class="btn btn-default" data-dismiss="modal" >Cancelar</button>
+          </div>
+        </div>
+        
+    </div>
+    <div class="cuerpo-reporte" ng-class="{ 'cuerpo-horiz': vmPdf.cabecera.diseno=='landscape' }">
+      <div class="hoja-reporte"  ng-class="{ 'hoja-horiz': vmPdf.cabecera.diseno=='landscape' }">
+            <div class="modal-header" >
+                    <button type="button" class="close" data-dismiss="modal">&times;</button> 
+            </div>
+            <div class="cabeza" ng-class="{ 'marg-horiz': vmPdf.cabecera.diseno=='landscape' }">
+                  <div class="imagenes">
+                        <input type="checkbox"  ng-model="vmPdf.checkboxModel.detalle[0].value">
+                          <input class="log" type="image" src="img/firma.jpg">
+                  </div>
+                  <div class="cabeza-medio">
+                      <div class="cabecera" ng-repeat="d in vmPdf.cabecera.detalle">
+                        <span ng-if="d.state == 1"><input type="text" ng-model="row" ng-keypress=" "></span>
+                        <span ng-if="d.state == 0" ng-dblclick="cambiar()">{{d.titulo}}</span>
+                        <div class="remove2" >
+                              <input type="checkbox" ng-model="d.submit"  name="">
+                        </div>
+                      </div>
+                  </div>
+                  <div class="imagenes">
+                       <input type="checkbox"  ng-model="vmPdf.checkboxModel.detalle[1].value">
+                          <input class="log" type="image" src="img/firma.jpg">
+                  </div>
+            </div>
+            <div class="titulo_principal" ng-class="{ 'marg-horiz': vmPdf.cabecera.diseno=='landscape' }">
+                <span>BricksApp</span>
+            </div>
+            <div class="descrip_cab" ng-class="{ 'marg-horiz': vmPdf.cabecera.diseno=='landscape' }">
+                    <input ng-model="vmPdf.cabecera.titles[0].submit" type="checkbox"><div><label for="">Nombre de presupuesto: </label><span>{{vmPdf.cabecera.titles[0].text}}</span></div>
+                    <input ng-model="vmPdf.cabecera.titles[1].submit" type="checkbox"><div><label for="">Profesional responsable: </label><span>{{vmPdf.cabecera.titles[1].text}}</span></div>
+                    <input ng-model="vmPdf.cabecera.titles[2].submit" type="checkbox"><div><label for="">Lugar: </label><span>{{vmPdf.cabecera.titles[2].text}}</span></div>
+                    <input ng-model="vmPdf.cabecera.titles[3].submit" type="checkbox"><div><label for="">Fecha: </label><span>{{vmPdf.cabecera.titles[3].text}}</span></div>
+           </div>
+            <div class="cuerpoPdf" ng-class="{ 'marg-horiz': vmPdf.cabecera.diseno=='landscape' }">
+                      <div id="pdfCantidad">
+                        
+                      </div>
+                      <div id="pdfMezcla">
+                        
+                      </div>
+            </div>  
+            
+
+            <div class="footer" ng-class="{ 'marg-horiz': vmPdf.cabecera.diseno=='landscape' }">
+                <div class="box" ng-class="{ 'marg-horiz': vmPdf.cabecera.diseno=='landscape' }">
+                    <div class="item" ng-repeat="item in vmPdf.firmas">
+                        <div class="remove" ng-click="vmPdf.remove_firma($index)">
+                          <i class="glyphicon glyphicon-remove"></i>
+                        </div>
+                        <div ng-if="item.tipo == 1" class="type-one">
+                            <div class="firma">
+                              {{item.numero}}
+                            </div>
+                            <div class="detalle">
+                              <ul class="list-unstyled">
+                                <li ng-repeat="d in item.detalle">
+                                  <span ng-if="d.state == 1"><input type="text" ng-model="d.name" ng-dblclick="vmPdf.cambiar2(item.numero,$index)"></span>
+                                  <span ng-if="d.state == 0" ng-dblclick="vmPdf.cambiar(item.numero,$index)">{{d.name}}</span>
+                                </li>
+                              </ul>
+                            </div>
+                        </div>
+                        <div ng-if="item.tipo == 2" class="type-one">
+                            <div class="detalle">
+                              <input type="image" src="/img/firma.jpg">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="plus" ng-click="vmPdf.plus()" ng-if="vmPdf.firmas.length < 3">
+                          <i class="glyphicon glyphicon-plus-sign"></i>
+                    </div>
+                    <div class="plus" ng-click="vmPdf.agregar()" ng-if="vmPdf.firmas.length < 3">
+                          <i class="glyphicon glyphicon-plus-sign"></i>
+                    </div>
+                    
+                </div>
+                <div class="time"  >
+                        <label>{{vmPdf.FromTime}}</label><input type="checkbox" ng-model="vmPdf.cabecera.tiempo[0].submit">
+                        <label>{{vmPdf.FromDate}}</label><input type="checkbox" ng-model="vmPdf.cabecera.tiempo[1].submit">
+                </div>
+          </div>
+
+
+
+      </div>
+    </div>
+}
+
+</div>

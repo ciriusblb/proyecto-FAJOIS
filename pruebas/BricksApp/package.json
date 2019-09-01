@@ -1,0 +1,24 @@
+{
+  "name": "brickapp",
+  "version": "1.0.0",
+  "description": "Esta es una aplicacion para calculo de ladrillos",
+  "main": "server.js",
+  "scripts": {
+    "test": "node server.js"
+  },
+  "author": "Denis Ricardo and Ciro Yupanqui",
+  "license": "ISC",
+  "dependencies": {
+    "bcrypt-nodejs": "0.0.3",
+    "body-parser": "^1.17.2",
+    "cookie-parser": "^1.4.3",
+    "excel4node": "^1.2.1",
+    "express": "^4.15.4",
+    "mysql": "^2.14.1",
+    "nodemailer": "^4.1.0",
+    "officegen": "^0.4.5",
+    "pdfmake": "^0.1.32",
+    "swig": "^1.4.2",
+    "tempfile": "^2.0.0"
+  }
+}

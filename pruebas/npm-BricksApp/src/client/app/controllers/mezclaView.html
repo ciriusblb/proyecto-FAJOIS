@@ -1,0 +1,149 @@
+<div class="col-md-12" ng-show="isSet(2)" style="margin-top:10px;">
+
+<div class="container-fluid col-md-12 thumbnail">
+  <form class="container-fluid form-group" name="datoDesperdicio2">
+  <ul class="nav">
+    <li class="">Volúmen de la Mezcla en m3 por m2 del muro</li>
+    <li style="height:43px;" class="fila2">
+        <div class="col-xs-4">% de desperdicio</div> 
+        <div class="fila2 col-xs-8" ng-class="{'has-error': datoDesperdicio2.mDesperdicio2.$invalid && datoDesperdicio2.mDesperdicio2.$dirty}">
+            <input class="form-control input-sm input" type="text" id="mDesperdicio2" name="mDesperdicio2" ng-model="vn.mDesperdicio2" ng-keydown="salto0($event,'mMezcla')" ng-keyup="mValida()" numbers-only required> % 
+            <span class="help-block has-error" ng-show="datoDesperdicio2.mDesperdicio2.$invalid && datoDesperdicio2.mDesperdicio2.$dirty" style="font-size: 13px;">Complete el campo % de desperdicio</span>
+        </div>
+    </li>
+  </ul>
+  </form>
+  <div style="text-align:center;">Sin desperdicio + % de desperdicio</div>
+
+  <div class="container-fluid form-group">           
+  <ul class="nav">
+    <li ng-repeat="li in vn.lista3">
+      <div class="fila2">
+        <div class="col-xs-2">{{li.direccion}}</div>
+        <div class="fila2 col-xs-8" style="justify-content:space-around;">
+          <input class="form-control input-sm input2" type="text" id="{{li.id1}}" ng-model="li.value1" disabled>
+          <input class="form-control input-sm input2" type="text" id="{{li.id2}}" ng-model="li.value2" disabled> 
+          <p>m3/m2</p>
+        </div>
+      </div>
+    </li>
+   </ul>
+   </div>
+
+</div>
+
+
+<div class="container-fluid">
+  <label>NOTA:</label>
+  <p class="">Para la determinación de v,m m olumen de mezcla por m3 en el componente "n" = Número de ladrillos por m2, se utilizo la cantidad de ladrillos sin desperdicio.</p>
+</div>
+
+<form class="container-fluid thumbnail form-group" name="datoMezcla">
+  <div class="fila" ng-repeat="li in vn.datosMezcla">
+    <div ng-if="li.medida!='Kg/m3'" class="col-xs-6"><p>{{li.descripcion}} :</p></div>
+    <div ng-if="li.medida=='Kg/m3'" class="col-xs-4"><p style="float:right;">{{li.descripcion}} :</p></div>
+    <div ng-if="li.input!=false" class="col-xs-6 subfila" ng-class="{'has-error':datoMezcla.{{li.id}}.$invalid && datoMezcla.{{li.id}}.$dirty}">
+      <input ng-if="li.descripcion=='Mezcla'" type="text" class="form-control input-sm input" id="{{li.id}}" name="{{li.id}}" ng-model="li.value" ng-keydown="salto1($event,$index)" ng-change="relacion(li.value)" numbers-only required>
+      <input ng-if="li.descripcion!='Mezcla'" type="text" class="form-control input-sm input" id="{{li.id}}" name="{{li.id}}" ng-model="li.value" ng-keydown="salto1($event,$index)" ng-keyup="mezcla()" numbers-only required>
+      {{li.medida}}
+      <span class="help-block has-error" ng-show="datoMezcla.{{li.id}}.$invalid && datoMezcla.{{li.id}}.$dirty" style="font-size: 13px;">Complete el campo {{li.descripcion}}</span>
+    </div> 
+  </div>
+</form>
+
+<div class="container-fluid thumbnail form-group">
+    <div class="container-fluid nav-tabs">Análisis</div>
+    <div class="fila">
+      <div class="fila col-xs-3"><p>Cemento:</p><p>1</p></div>
+      <div class="fila col-xs-3"><p>p3</p><p>=</p></div>
+      <div class="subfila col-xs-6">
+        <input type="text" class="form-control input-sm input" ng-model="vn.mAnalisis[0].value" disabled><p>Kg</p>
+      </div>
+    </div>
+    <div class="fila">
+      <div class="fila col-xs-3"><p>Arena:</p><p>5</p></div><div class="fila col-xs-3"><p>p3</p><p>=</p></div>
+      <div class="subfila col-xs-6">
+        <input type="text" class="form-control input-sm input" ng-model="vn.mAnalisis[1].value" disabled><p>Kg</p>
+      </div>
+    </div>
+
+    <div class="fila">
+      <div class="fila col-xs-6"></div>
+      <div class="subfila col-xs-6">
+        <input type="text" class="form-control input-sm input" ng-model="vn.mAnalisis[2].value" disabled><p>Kg</p>
+      </div>
+    </div>
+
+    <div class="container-fluid nav-tabs">Rendimiento de la mezcla</div>
+    <div class="fila">
+      <div class="subfila col-xs-2">Cemento</div>
+      <div class="subfila col-xs-6">
+        <input type="text" class="form-control input-sm input" ng-model="vn.mRendimiento[0].value" disabled><p>Kg</p><p class="slash">/</p>
+        <input type="text" class="form-control input-sm input" ng-model="vn.mRendimiento[1].value" disabled><p>Kg/m3</p>
+      </div>
+      <div class="subfila col-xs-4">
+          <p>=</p><input type="text" class="form-control input-sm input2" ng-model="vn.mRendimiento[2].value" disabled><p>m3</p>
+      </div>
+    </div>
+    <div class="fila">
+      <div class="subfila col-xs-2">Arena</div>
+      <div class="subfila col-xs-6">
+        <input type="text" class="form-control input-sm input" ng-model="vn.mRendimiento[3].value" disabled><p>Kg</p><p class="slash">/</p>
+        <input type="text" class="form-control input-sm input" ng-model="vn.mRendimiento[4].value" disabled><p>Kg/m3</p>
+      </div>
+      <div class="subfila col-xs-4">
+          <p>=</p><input type="text" class="form-control input-sm input2" ng-model="vn.mRendimiento[5].value" disabled><p>m3</p>
+      </div>
+    </div>
+    <div class="fila">
+      <div class="subfila col-xs-2">Agua</div>
+      <div class="subfila col-xs-6">
+        <input type="text" class="form-control input-sm input" ng-model="vn.mRendimiento[6].value" disabled><p>KgX</p>
+        <input type="text" class="form-control input-sm input" ng-model="vn.mRendimiento[7].value" disabled><p class="slash">/</p>
+        <input type="text" class="form-control input-sm input" ng-model="vn.mRendimiento[8].value" disabled><p>Kg/m3</p>
+      </div>
+      <div class="subfila col-xs-4">
+          <p>=</p><input type="text" class="form-control input-sm input2" ng-model="vn.mRendimiento[9].value" disabled><p>m3</p>
+      </div>
+    </div>
+    <div class="fila">
+      <div class="col-xs-2"></div>
+      <div class="col-xs-6"></div>
+      <div class="subfila col-xs-4" style="margin-left:25px;">
+          <input type="text" class="form-control input-sm input2" ng-model="vn.mRendimiento[10].value" disabled><p>m3</p>
+      </div>
+    </div>
+    <div class="fila">
+      <div class="subfila col-xs-8">Aire incorporado 1%</div>
+      <div class="subfila col-xs-4">
+          <p>=</p><input type="text" class="form-control input-sm input2" ng-model="vn.mRendimiento[11].value" disabled><p>m3</p>
+      </div>
+    </div>
+    <div class="fila">
+      <div class="subfila col-xs-8">Total</div>
+      <div class="subfila col-xs-4">
+          <p>=</p><input type="text" class="form-control input-sm input2" ng-model="vn.mRendimiento[12].value" disabled><p>m3</p>
+      </div>
+    </div>
+</div>
+
+<div class="container-fluid form-group thumbnail">
+<table id="table" class="table table-striped">
+  <thead class="center">
+    <tr class="active">
+      <td rowspan="">Ladrillo</td>
+      <td rowspan="">Cemento bolsas</td>
+      <td rowspan="">Arena m3</td>
+      <td colspan="">Agua m3</td>
+    </tr>
+  </thead>
+  <tbody>
+    <tr ng-repeat="li in vn.lista4">
+        <td>{{li.direccion}}</td>
+        <td><input type="text" id="{{li.id1}}" ng-model="li.value1" class="form-control input-sm" disabled></td>
+        <td><input type="text" id="{{li.id2}}" ng-model="li.value2" class="form-control input-sm" disabled></td>
+        <td><input type="text" id="{{li.id3}}" ng-model="li.value3" class="form-control input-sm" disabled></td>
+    </tr>
+  </tbody>
+</table>
+</div>

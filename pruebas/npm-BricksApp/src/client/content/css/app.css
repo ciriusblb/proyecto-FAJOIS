@@ -1,0 +1,125 @@
+*{
+    margin: 0;
+}
+.contenedor {
+    background: #333;
+}
+.titulo{
+    display: flex;
+}
+.logo{
+    width: 58px;
+    height: 50px;
+}
+.ladrillo {
+    color: #fff;
+    margin-left: 30px;
+    margin-top: 5px;
+}
+.usuario{
+    color: white;
+}
+.icon-user{
+    font-size: 50px;
+}
+.cerrar{
+	margin-top: 10px;
+    float: right;
+}
+.cuerpo1, .cuerpo2{
+    background: lightgray;
+    height: 100px;
+}
+
+.tabla{
+    border: 1px solid lightgray;
+    height: 330px;
+    overflow: auto;
+}
+.center{
+    text-align: center;
+    font-weight: bold;
+}
+.leyenda{
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+}
+.glyphicon-chevron-down{
+    float: right;
+}
+.glyphicon-chevron-up{
+    float: right;
+}
+
+
+
+
+
+
+.icon{
+    font-size: 35px;
+    color: black;
+}
+.fila{
+    display:flex;
+    justify-content: space-between;
+
+}
+.fila2{
+    display: flex;
+}
+.fila3{
+    display: flex;
+    justify-content: space-between;
+}
+.subfila,.subfila2{
+    display: flex;
+}
+.subfila div:first-child{
+    width: 70px;
+    display: flex;
+    justify-content: space-between;
+}
+.subfila div:last-child{
+    width: 120px;
+    display: flex;
+    justify-content: space-between;
+    margin-left: 10px;
+}
+.subfila2 div{
+    display: flex;
+    margin-right: 10px;
+}
+.input{
+    width: 50px;
+}
+.input2{
+    width: 60px;
+}
+.ventana{
+    height: 400px;
+    overflow: auto;
+}
+.padin{
+    padding: 10px;
+}
+input[type="text"]:disabled {
+    background: white;
+}
+.alert{
+    background: #a94442;
+    color: white;
+    border-radius: 0 4px 4px 4px;
+    padding: 5px;
+}
+.alert:after{
+content: "";
+position: absolute;
+   bottom: 50%;
+   left: 10px;
+   border-bottom:  10px solid blue;
+   border-bottom-color: #ce4848;
+   border-left: 10px solid transparent;
+   border-right: 10px solid transparent;
+}

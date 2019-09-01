@@ -1,0 +1,234 @@
+<div class="col-md-12" style="margin-top:10px;">
+  <div class="container-fluid col-md-12 thumbnail">
+    <div class="container-fluid form-group">
+      <span>Volumen de la mezcla en m3 por m2 de muro</span>
+      <div style="height:43px;" class="fila2">
+        <span class="col-xs-4">% de desperdicio</span>
+        <div class="fila2 col-xs-2" id="mezcla_desperdicio" data-trigger="focus"  data-toggle="popover"  data-placement="right">
+          <input type="text" required name="mezcla_desperdicio" ng-keydown="vm.saltar2($event,0)"  class="form-control input-sm" style="width: 60px;" ng-model="vm.itemEdit.mezcla_desperdicio" max="25" numbers-float>%
+          <span class="form-control-feedback"  id="not-mezcla_desperdicio"></span>
+        </div>
+        <div class="col-xs-6"></div>
+      </div>
+    </div>
+    <div style="text-align:center;">Sin desperdicio + % de desperdicio</div>
+    <div class="container-fluid form-group">
+      <div class="col-xs-12">
+        <span class="col-xs-2">Soga</span>
+        <div class="fila2 col-xs-8" style="justify-content:space-around;">
+            <span style="width: 60px;">{{vm.itemResult.m_soga[0]}}</span>
+            <span style="width: 60px;">{{vm.itemResult.m_soga[1]}}</span>
+            <span>m3/m2</span>
+        </div>
+      </div>
+      <div  class="col-xs-12" >
+        <span class="col-xs-2">Cabeza</span>
+        <div class="fila2 col-xs-8" style="justify-content:space-around;">
+          <span style="width: 60px;">{{vm.itemResult.m_cabeza[0]}}</span>
+          <span style="width: 60px;">{{vm.itemResult.m_cabeza[1]}}</span>
+          <span >m3/m2</span>
+        </div>
+      </div>
+      <div  class="col-xs-12">
+        <span class="col-xs-2">Canto </span>
+        <div class="fila2 col-xs-8" style="justify-content:space-around;">
+          <span style="width: 60px;">{{vm.itemResult.m_canto[0]}}</span>
+          <span style="width: 60px;">{{vm.itemResult.m_canto[1]}}</span>
+          <span >m3/m2</span>
+        </div> 
+      </div>
+      </div>
+  </div>
+
+  <div class="container-fluid">
+    <label>NOTA:</label>
+    <p class="">Para la determinación de v,m m olumen de mezcla por m3 en el componente "n" = Número de ladrillos por m2, se utilizo la cantidad de ladrillos sin desperdicio.</p>
+  </div> 
+
+    <div class="container-fluid thumbnail form-group">
+      <div class="container-fluid nav-tabs">Cemento - Arena -Agua(m2 de muro)</div>
+      <div class="fila">
+        <span class="col-xs-6">Mezcla</span>
+        <div class="col-xs-2 subfila" id="mezcla" data-trigger="focus"  data-toggle="popover"  data-placement="rigth">
+          <input type="text" class="form-control input-sm" style="width: 60px;" ng-keydown="vm.saltar2($event,1)"  required  name="mezcla" min="1" max="8" ng-model="vm.itemEdit.mezcla"   numbers-int>
+          <span class="form-control-feedback"  id="not-mezcla"></span>
+        </div>
+        <div class="col-xs-4"></div>
+      </div>
+      <div class="fila">
+        <span class="col-xs-6">Densidad - Peso unitario</span>
+        <div class="col-xs-6 subfila"></div>
+      </div>
+      <div class="fila" >
+        <span class="col-xs-4"><p style="float:right;">Cemento</p></span>
+        <span class="col-xs-2"></span>
+        <div class="col-xs-2 subfila" id="densidad_cemento" data-trigger="focus"  data-toggle="popover"  data-placement="rigth">
+          <input type="text" class="form-control input-sm" style="width: 60px;" ng-keydown="vm.saltar2($event,2)" required name="densidad_cemento" ng-model="vm.itemEdit.densidad_cemento" min="2500" max="4000" numbers-int>
+          <span class="form-control-feedback"  id="not-densidad_cemento"></span>kg/m3
+        </div>
+        <div class="col-xs-4"></div>
+      </div>
+      <div class="fila" >
+          <span class="col-xs-4"><p style="float:right;">Arena</p></span>
+          <span class="col-xs-2"></span>
+          <div class="col-xs-2 subfila" id="densidad_arena" data-trigger="focus"  data-toggle="popover"  data-placement="rigth">
+            <input type="text" class="form-control input-sm" style="width: 60px;" ng-keydown="vm.saltar2($event,3)" required  name="densidad_arena" ng-model="vm.itemEdit.densidad_arena" min="1500" max="3500"  numbers-int>kg/m3
+            <span class="form-control-feedback"  id="not-densidad_arena"></span>
+          </div>
+          <div class="col-xs-4"></div>
+      </div>
+      <div class="fila" >
+        <span class="col-xs-4"><p style="float:right;">Agua</p></span>
+          <span class="col-xs-2"></span>
+        <div class="col-xs-2 subfila" id="densidad_agua" data-trigger="focus"  data-toggle="popover"  data-placement="rigth">
+          <input type="text" class="form-control input-sm" style="width: 60px;" ng-keydown="vm.saltar2($event,4)" required name="densidad_agua"  ng-model="vm.itemEdit.densidad_agua" min="900" max="1200" numbers-int>kg/m3
+          <span class="form-control-feedback"  id="not-densidad_agua"></span>
+        </div>
+        <div class="col-xs-4"></div>
+      </div>
+      <div class="fila">
+        <span class="col-xs-6">Peso específico</span>
+        <div class="col-xs-6 subfila"></div>
+      </div>
+      <div class="fila" >
+        <span class="col-xs-4"><p style="float:right;">Arena</p></span>
+        <span class="col-xs-2"></span>
+        <div class="col-xs-2 subfila" id="peso_arena" data-trigger="focus"  data-toggle="popover"  data-placement="rigth">
+          <input type="text" class="form-control input-sm" style="width: 60px;" ng-keydown="vm.saltar2($event,5)" required name="peso_arena" ng-model="vm.itemEdit.peso_arena" min="1000" max="2000" numbers-int>kg/m3
+          <span class="form-control-feedback"  id="not-peso_arena"></span>
+        </div>
+        <div class="col-xs-4"></div>
+      </div>
+      <div class="fila" >
+        <span class="col-xs-6">% de aire incorporado:</span>
+        <div class="col-xs-2 subfila" id="aire" data-trigger="focus"  data-toggle="popover"  data-placement="rigth">
+          <input type="text" class="form-control input-sm" style="width: 60px;" ng-keydown="vm.saltar2($event,6)" required name="aire" min="1" max="10" ng-model="vm.itemEdit.aire" numbers-int>%
+          <span  class="form-control-feedback" id="not-aire"></span>
+        </div>
+        <div class="col-xs-4"></div>
+      </div>
+      <div class="fila">
+        <span class="col-xs-6">Relación de Agua/cemento:</span>
+        <div class="col-xs-6 subfila">
+          <span  class="margen width">{{vm.itemResult.agua_cemento}}</span>
+        </div>
+      </div>
+    </div>
+
+
+
+    <div class="container-fluid thumbnail form-group">
+      <div class="container-fluid nav-tabs">Análisis</div>
+      <div class="fila">
+        <span class="fila col-xs-3"><p>Cemento:</p><p>1</p></span>
+        <span class="fila col-xs-3"><p>p3</p><p>=</p></span>
+        <div class="subfila col-xs-6">
+          <span style="width: 50px;">{{vm.itemResult.analisis[0]}}</span>
+          <span>kg</span>
+        </div>
+      </div>
+      <div class="fila">
+        <span class="fila col-xs-3"><p>Cemento:</p><p>1</p></span>
+        <span class="fila col-xs-3"><p>p3</p><p>=</p></span>
+        <div class="subfila col-xs-6">
+          <span style="width: 50px;" >{{vm.itemResult.analisis[1]}}</span>
+          <span>kg</span>
+        </div>
+      </div>   
+      <div class="fila">
+        <div class="fila col-xs-6"></div>
+        <div class="subfila col-xs-6">
+          <span  style="width: 50px;" >{{vm.itemResult.analisis[2]}}</span>
+          <span>kg</span>
+        </div>
+      </div>
+
+      <div class="container-fluid nav-tabs">Rendimiento de la mezcla</div>
+      <div class="fila">
+        <div class="subfila col-xs-2">Cemento</div>
+        <div class="subfila col-xs-6" >
+          <span>{{vm.itemResult.analisis[0]}} kg/ {{vm.itemEdit.densidad_cemento}} kg/m3</span>
+        </div>
+        <div class="subfila col-xs-4">
+          =<span class="margen" style="width: 50px;">{{vm.itemResult.rendimiento[0]}}</span>
+          <span>m3</span>
+        </div>
+      </div>
+      <div class="fila">
+        <span class="subfila col-xs-2">Arena</span>
+        <div class="subfila col-xs-6" >
+          <span >{{vm.itemResult.analisis[1]}} kg/ {{vm.itemEdit.densidad_arena}} kg/m3</span>
+        </div>
+        <div class="subfila col-xs-4">
+          =<span class="margen" style="width: 50px;">{{vm.itemResult.rendimiento[1]}}</span>
+          <span>m3</span>
+        </div>
+      </div>
+      <div class="fila">
+        <span class="subfila col-xs-2">Agua</span>
+        <div class="subfila col-xs-6">
+          <span >({{vm.itemResult.analisis[0]}} kg x {{vm.itemResult.agua_cemento}})/{{vm.itemEdit.densidad_agua}} kg/m3</span>
+        </div>
+        <div class="subfila col-xs-4">
+          =<span class="margen" style="width: 50px;">{{vm.itemResult.rendimiento[2]}}</span>
+          <span>m3</span>
+        </div>
+      </div>
+      <div class="fila">
+        <div class="col-xs-2"></div>
+        <div class="col-xs-6"></div> 
+        <div class="subfila col-xs-4" style="margin-left:25px;">
+          <span class="margen" style="width: 50px;">{{vm.itemResult.rendimiento[3]}}</span>
+          <span>m3</span>
+        </div>
+      </div>
+      
+      <div class="fila"> 
+        <div class="subfila col-xs-8">Aire Incorporado</div>
+        <div class="subfila col-xs-4">
+          =<span class="margen" style="width: 50px;"> {{vm.itemResult.rendimiento[4]}}</span>
+           <span>m3</span>
+        </div>
+      </div>
+      <div class="fila"> 
+        <div class="subfila col-xs-8">Total</div>
+        <div class="subfila col-xs-4">
+          =<span  class="margen" style="width: 50px;">{{vm.itemResult.rendimiento[5]}}</span>
+            <span>m3</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="container-fluid form-group thumbnail">
+      <table id="table" class="table table-striped">
+        <thead class="center">
+          <tr class="active">
+            <td rowspan="">Ladrillo</td>
+            <td rowspan="">Cemento bolsas</td>
+            <td rowspan="">Arena m3</td>
+            <td colspan="">Agua m3</td>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Soga</td>
+            <td><div class="input-sm margen td">{{vm.itemResult.cemento[0]}}</div></td>
+            <td><div class="input-sm margen td">{{vm.itemResult.cemento[1]}}</div></td>
+            <td><div class="input-sm margen td">{{vm.itemResult.cemento[2]}}</div></td>
+          </tr>
+          <tr>
+            <td>Cabeza</td>
+            <td><div class="input-sm margen td">{{vm.itemResult.arena[0]}}</div></td>
+            <td><div class="input-sm margen td">{{vm.itemResult.arena[1]}}</div></td>
+            <td><div class="input-sm margen td">{{vm.itemResult.arena[2]}}</div></td>
+          </tr>
+          <tr>
+            <td>Canto</td>
+            <td><div class="input-sm margen td">{{vm.itemResult.agua[0]}}</div></td>
+            <td><div class="input-sm margen td">{{vm.itemResult.agua[1]}}</div></td>
+            <td><div class="input-sm margen td">{{vm.itemResult.agua[2]}}</div></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+</div>

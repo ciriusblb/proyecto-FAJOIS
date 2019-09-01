@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Bricks-App</title>
+  <link rel="stylesheet" href="/css/alert.css">
+  <link rel="stylesheet" href="/css/app.css">
+  <link rel="stylesheet" href="/css/bootstrap.css">
+  <link rel="stylesheet" href="/css/login.css">
+  <link rel="stylesheet" href="/css/sweetalert2.css">
+  <link rel="stylesheet" href="/css/toastr.css">
+
+  <script  src="/js/angular.js"></script>
+  <script  src="/js/angular-idle.js"></script>
+  <script  src="/js/ui-bootstrap.js"></script>
+  <script  src="/js/angular-resource.js"></script>
+  <script  src="/js/angular-ui-router.js"></script>
+  <script  src="/js/ng-cookies.js"></script>
+  <script  src="/js/jquery.js"></script>
+  <script  src="/js/bootstrap.js"></script>
+  <script  src="/js/angular-messages.js"></script>
+  <script  src="/js/sweetalert2.js"></script>
+  <script  src="/js/toastr.js"></script>
+
+  <script src="/controllers/app.js"></script>
+  <script src="/controllers/fatherCtrl.js"></script>
+  <script src="/controllers/user/loginCtrl.js"></script>
+  <script src="/controllers/main/itemsCtrl.js"></script>
+  <script src="/controllers/main/pdfCtrl.js"></script>
+
+  <script src="/directives/directive.js"></script>
+  <script src="/directives/contraseña.js"></script>
+  <script src="/directives/numbersFloat.js"></script>
+  <script src="/directives/numbersInt.js"></script>
+  <script src="/directives/eventClick.js"></script>
+  
+  <script src="/common/common.service.js"></script>
+  <script src="/common/services/user/UserResource.js"></script>
+  <script src="/common/services/main/dateResource.js"></script> 
+</head>
+<body ng-app="bricksApp" ng-controller="FatherCtrl as vs" ui-view>
+</body>
+</html>

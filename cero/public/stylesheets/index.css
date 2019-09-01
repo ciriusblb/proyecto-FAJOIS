@@ -1,0 +1,170 @@
+.container {
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.container > div {
+  width: 60%;
+}
+
+.container .setting .header .cabecera {
+  -webkit-ujstify-content: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  text-align: center;
+  margin: 0 5px;
+  position: relative;
+}
+.cabeza{
+  display: flex;
+
+}
+.container .setting .header .imagenes {
+  margin: 0 5px;
+  width: 70px;
+}
+.imagenes input[type=checkbox] {margin-left: 25px;}
+.imagenes .log{
+  width: 70px;
+  height: 70px;
+}
+
+.container .setting .header .cabecera span {
+  width: 100%;
+}
+
+.container .setting .header .cabecera span input {
+  text-align: center;
+  width: 100%;
+}
+
+.container .setting .header .cabecera:hover .remove {
+  background: red;
+  color: #FFF;
+}
+
+.container .setting .header .titulo_principal {
+  text-align: center;
+  font-size: 2em;
+  font-weight: bold;
+  background: #F3F3F3;
+  border-bottom: solid gray 1px;
+  padding: 10px 0px;
+}
+
+.container .setting .header .descrip_cab input{
+  float: left;
+}
+.container .setting .header .descrip_cab > div {
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.container .setting .header .descrip_cab > div label {
+  width: 35%;
+}
+
+.container .setting .item {
+  width: 160px;
+  text-align: center;
+  margin: 0 5px;
+  position: relative;
+}
+
+.container .setting .item:hover .remove {
+  background: red;
+  color: #FFF;
+}
+
+.container .setting .footer {
+  border: 1px solid #E2E2E2;
+  padding: 20px 30px;
+  margin: 10px 0;
+  font-size: 0.8em;
+}
+
+.container .setting .remove {
+  font-size: 21px;
+  line-height: 1;
+  position: absolute;
+  right: 0;
+  top: 0;
+  padding: 0px 7px;
+  cursor: pointer;
+}
+.container .setting .remove2{
+  font-size: 21px;
+  line-height: 1; 
+  padding: 0px 7px;
+  cursor: pointer;
+}
+.container .setting .plus {
+  width: 50px;
+  height: 50px;
+  font-size: 3em;
+  border: 1px solid #DADADA;
+  border-radius: 50%;
+  color: #6F6F6F;
+  cursor: pointer;
+  position: relative;
+  box-shadow: 1px 3px 6px rgba(216, 216, 216, 0.69);
+  margin-top: 19px;
+}
+
+.container .setting .plus i {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: TRANSLATE(-50%, -50%);
+      -ms-transform: TRANSLATE(-50%, -50%);
+          transform: TRANSLATE(-50%, -50%);
+}
+
+.box {
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-justify-content: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.type-one .firma {
+  height: 45px;
+}
+
+.type-one .detalle {
+  border-top: 1px solid #909090;
+}
+.type-one .detalle input{
+  width: 100px;
+}
+
+ul {
+  padding: 0;
+  margin: 5px;
+}
+
+li {
+  list-style: none;
+}
+
+iframe {
+  width: 100%;
+  min-height: 547px;
+}
+
+.reportes1,.reportes2 {
+  float: left;
+}
+.reportes1 input ,.reportes2 label{
+  display: block;
+}
+.reportes1 input{
+  margin-top: 7px;
+}

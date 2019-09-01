@@ -1,0 +1,16 @@
+{
+  "name": "BricksApp",
+  "description": "Este es el proyecto BricksApp",
+  "version": "0.0.1",
+  "author": "Ciro",
+  "scripts": {
+    "start": "node src/server/app.js"
+  },
+  "dependencies": {
+    "body-parser": "^1.8.2",
+    "express": "^4.9.3",
+    "morgan": "^1.1.1",
+    "serve-favicon": "^2.4.3"
+  },
+  "devDependencies": {}
+}

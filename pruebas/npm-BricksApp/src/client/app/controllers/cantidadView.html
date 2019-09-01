@@ -1,0 +1,43 @@
+      <div class="col-md-12" ng-show="isSet(1)" style="margin-top:10px;">     
+        <form class="form-group row" name="datoNombre" style="margin-bottom: -2px;">
+          <label for="" class="col-md-2 col-form-label" style="margin-top:5px;">Nombre :</label>
+          <div class="col-md-10" ng-class="{'has-error': datoNombre.nombre.$invalid && datoNombre.nombre.$dirty}">
+            <input type="text" class="form-control" id="nombre" name="nombre" ng-model="vn.nombre" ng-keydown="salto0($event,'longitud')" ng-minlength="10" ng-maxlength="50" required>
+            <span class="help-block has-error">
+              <span ng-messages="datoNombre.nombre.$error" ng-if="datoNombre.nombre.$dirty">
+                <span ng-message="required">Escriba un nombre a su proyecto</span>
+                <span ng-message="minlength">El nombre para su proyecto ser mínimo de 10</span>
+                <span ng-message="maxlength">El nombre para su proyecto debe ser máximo de 50</span>
+              </span>
+            </span>
+          </div>
+        </form>
+        <div class="container-fluid thumbnail form-group">
+        <form class="" name="datos1">
+            <ul class="nav col-md-12">
+              <li ng-repeat="li in vn.lista1">
+                <div class="col-xs-7 fila2"><p>{{li.sigla}}</p><p>{{li.descripcion}}</p></div>
+                <div class="col-xs-5 subfila" ng-class="{'has-error': datos1.{{li.id}}.$invalid && datos1.{{li.id}}.$dirty}">
+                    <input type="text" id="{{li.id}}" name="{{li.id}}" class="form-control input-sm input" ng-model="li.value" ng-keyup="valida(li.value,$index)" ng-keydown="salto($event,$index)" ng-blur="decimal()" required>cm 
+                    <span class="help-block has-error" ng-show="datos1.{{li.id}}.$invalid && datos1.{{li.id}}.$dirty" style="font-size: 13px;">Complete el campo {{li.descripcion}}</span>
+                </div>
+              </li>   
+            </ul>
+        </form>
+
+         <div style="text-align:center;">Sin desperdicio + % de desperdicio</div>
+         <div class="form-group">
+              <ul class="list-group col-md-12">
+               <li ng-repeat="li in vn.lista2" class="fila2">
+                   <div class="col-xs-2 fila"><p>{{li.direccion}}</p><p>=</p></div>
+                   <div class="fila col-xs-3"><p> {{li.descripcion}}</p><p>=</p></div>
+                   <div class="col-xs-6 fila3">
+                     <div class="fila2"><input type="text" id="{{li.id1}}" class="form-control input-sm input" ng-model="li.value1" disabled><p>Und</p></div>
+                     <div class="fila2"><input type="text" id="{{li.id2}}" class="form-control input-sm input" ng-model="li.value2" disabled><p>Und</p></div>
+                   </div>
+               </li>
+              </ul>
+          </div>
+        </div>
+      </div>
+

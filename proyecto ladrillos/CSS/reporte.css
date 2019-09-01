@@ -1,0 +1,40 @@
+*{
+    margin: 0;
+}
+body {
+  position: relative;
+  width: 21cm;  
+  height: 29.7cm; 
+  margin: 0 auto; 
+  color: #001028;
+  background: #FFFFFF; 
+  font-family: Arial, sans-serif; 
+  font-size: 12px; 
+  font-family: Arial;
+}
+
+.top{
+    width: 1000px;
+    margin: auto;
+}
+.pegar{
+  float: left;
+  width: 100px;
+  height: 60px;
+ background: #DCDCDC;
+ font-size: 20px;
+ border-radius: 3px;
+ text-align: center;
+}
+
+.completar{
+    width: 500px;
+    float: left;
+    flex-wrap: wrap;
+}
+.completar input{
+  width: 200px;
+  background: red;
+  white-space: nowrap;  
+     height: 20px;
+}

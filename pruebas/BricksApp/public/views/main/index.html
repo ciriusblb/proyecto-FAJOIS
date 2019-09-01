@@ -1,0 +1,198 @@
+<div ng-init="start()">
+
+  <header class="container-fluid contenedor" style="margin-bottom:20px;">
+    <div class="col-md-6 col-xs-5 titulo"  >
+      <img class="logo"  src="/img/logo.png">
+      <h1 class="ladrillo">Ladrillos en Muros</h1>
+    </div>
+    <div class="col-md-2 col-xs-2" >
+      <a href="#" ng-click="vm.user()" class="menu" ng-class="{'ver-menu' : vm.view==1}"><span class="glyphicon glyphicon-user icon"></span></a>
+    </div>
+    <div class="collapse navbar-collapse" id="menu" >
+      <ul class="nav navbar-nav navbar-right">
+        <li><a href="#" >Informacion</a></li>
+        <li><a href="#" ng-click="vm.salir()">Cerrar Sesion</a></li>
+      </ul>
+    </div>
+  </header>
+
+  <main class="container-fluid">
+    <section class="col-md-6" >
+      <div class="row" style="margin-bottom:10px;">
+        <div class="col-md-12">
+          <div class="input-group">
+            <span class="input-group-btn">
+              <button class="btn btn-default" type="button">Buscar</button>
+            </span>
+            <input type="text" ng-model="vm.itemSearch" class="form-control">
+          </div>
+        </div>
+      </div>
+      <table id="table" class="table-bordered active col-xs-12">
+        <thead class="center">
+          <tr class="active">
+            <td rowspan="2" class="col-md-1" >Item</td>
+            <td rowspan="2" >Descripción</td>
+            <td rowspan="2" >Und</td>
+            <td  class="center" colspan="3">Posicion</td>
+          </tr>
+          <tr >
+            <td>Soga</td>
+            <td>Cabeza</td>
+            <td>Canto</td>
+          </tr>
+        </thead>
+      </table>
+     <div class="tabla   nopadding" ng-show="(vm.itemData).length>0">
+        <div class=" nopadding" >
+          <div class="list-inline data" ng-repeat="nItem in vm.itemData|startFrom : vm.iniLim|limitTo: 7 | filter:{ descripcion : vm.itemSearch }" >
+              <ng-include src="'/views/main/views/tableDatos.html'" ></ng-include>
+          </div>            
+        </div>
+    </div>
+      <div  class="jumbotron center" ng-show="(vm.itemData).length==0" >
+        <div class="container">
+          <h2>No Tiene nigun dato Guardado</h2>
+          <span class="glyphicon glyphicon-eye-close" style="font-size: 90px;"></span>
+        </div>
+      </div>
+
+<div class="col-xs-12" >
+  <div class="col-xs-6 herramientas">
+    <ul class="nav nav-pills">
+        <li><div class="glyphicon glyphicon-wrench"></div></li>
+        <li ng-class="{'active':vm.select==true}"><a id="btnSelect" class="glyphicon glyphicon-check"  ng-click="vm.tools()" play-Disabled></a></li>
+        <li ><a class="glyphicon glyphicon-fullscreen" ></a></li>
+     </ul>
+  </div>
+  <div  class="col-xs-6 " ng-show="(vm.navItems).length>1" >
+          <ul class="pagination nomargin " style="margin-top: 5px; float: right;">
+            <li>
+              <a href="#" aria-label="Previous" ng-click="vm.indexItems(vm.positionNav-1)">
+                <span aria-hidden="true">&laquo;</span>
+              </a>
+            </li>
+            <li ng-repeat="navItem in vm.navItems track by $index"  ng-class="{'active': $index==vm.positionNav}">
+                <a ng-click="vm.indexItems($index)" href="#">{{$index+1}}</a>
+            </li>
+            <li>
+              <a href="#" aria-label="Next" ng-click="vm.indexItems(vm.positionNav+1)">
+                <span aria-hidden="true">&raquo;</span>
+              </a>
+            </li>
+          </ul>
+    </div>
+</div>
+      <div class="">
+        <div class="panel" ng-show="(vm.pest)==0" >
+            <h4 class="panel-title">Fórmula</h4>
+          <div class="panel-body leyenda">
+            <div class="col-md-6">
+              <img src="/img/Captura.PNG">
+            </div>
+            <table class="col-md-6">
+              <tr ng-repeat="tr in vm.leyenda1">
+                <td>{{tr.sigla}}</td>
+                <td>=</td>
+                <td> {{tr.signi}}</td>
+              </tr>
+            </table>
+          </div>
+        </div>  
+        <div class="panel" ng-show="(vm.pest)==1">
+            <h4 class="panel-title">Fórmula</h4>
+          <div class="panel-body leyenda">
+            <div class="col-md-4">
+              <img src="/img/Captura5.PNG">
+            </div>
+            <table class="col-md-8">
+              <tr ng-repeat="tr in vm.leyenda2">
+                <td>{{tr.sigla}}</td>
+                <td>=</td>
+                <td> {{tr.signi}}</td>
+              </tr>
+            </table>
+          </div>   
+        </div>
+      </div>
+    </section>
+    <section class="col-md-6" style="margin-top: -7px;">
+      <div class="operaciones" >
+        <ul class="nav nav-pills">
+          <li activeOP><a ng-show="vm.pestOper=='nuevo'" class="glyphicon glyphicon-file icon" id="btnnuevo" ui-sref="home.new" ng-click="vm.start(0)" play-Disabled></a></li>
+          <li ng-show="vm.acceso>0||vm.pestOper=='editar' " ng-class="{'activeOP':$index==1}"><a class="glyphicon glyphicon-pencil icon" id="btneditar" ui-sref="home.view.edit" ng-click="vm.start(1)" play-Disabled ></a></li>
+          <li ng-show="vm.acceso>0||vm.pestOper=='eliminar' || vm.select==true"><a class="glyphicon glyphicon-trash icon" id="btneliminar"  ng-click="vm.eliminar(2)" play-Disabled></a></li>
+          <li ng-show="vm.acceso>0||vm.pestOper=='reporte'" data-toggle="modal" data-target="#myModalPDF"><a class="glyphicon glyphicon-save-file icon" id="btnpdf" ng-click="vm.pdf(3)" ui-sref="home.view.reporte"></a></li>
+        </ul>
+      </div>
+      <div class="navegando" >
+        <ul class="nav nav-tabs" name="navegando">
+          <li role="presentation" name="cat"  ng-class="{'active': vm.pest==0}"><a ng-click="vm.navTab(0)">Cantidad</a></li>
+          <li role="presentation" name="cat" ng-class="{'active': vm.pest==1}"><a  ng-click="vm.navTab(1)">Mezcla</a></li>
+        </ul>
+      </div>
+      <form name="bricksForm" id="bricksForm" novalidate >
+        <fieldset  class="ventana" style="margin-bottom:5px;" >
+          <fieldset ng-show="(vm.pest)==0" ><ng-include src="'/views/main/views/tableCantidadView.html'" ></ng-include> </fieldset>
+          <fieldset ng-show="(vm.pest)==1" ><ng-include src="'/views/main/views/tableMezclaView.html'" ></ng-include></fieldset>
+        </fieldset>
+      </form> 
+      <div class="btn-group btn-group-justified" role="group" >
+        <div class="btn-group" role="group">
+          <button type="button" ng-disabled="bricksForm.$invalid" class="btn btn-default" ng-click="vm.guardar(bricksForm)" style="background: #337ab7; color: white;">Guardar</button>
+        </div>
+        <div class="btn-group" role="group">
+          <button type="button"  id="cancelar" class="btn btn-default" ng-click="vm.cancelar(form)" play-Disabled>Cancelar</button>
+        </div>
+      </div>
+    </section>
+    <div class="left-panel" ng-class=" {'ver-panel' : vm.view==1} ">
+      <div class="row">
+        <img src="../img/user.png" class="panel-user">
+      </div>
+      <div class="panel panel-default container-fluid">
+        <label >Nombre:</label>
+        <div class="panel-footer">{{vm.usuario.names}}</div>
+      </div>
+      <div class="panel panel-default">
+        <label >Apellidos:</label>
+        <div class="panel-footer">{{vm.usuario.last_names}}</div>
+      </div>
+      <div class="panel panel-default">
+        <label >Correo Electronico:</label>
+        <div class="panel-footer">{{vm.usuario.email}}</div>
+      </div>
+      <div>
+        <ul class="list-group">
+          <li class="list-group-item">
+            <span class="badge">{{(vm.items).length}}</span>
+            Proyectos Realizados
+          </li>
+        </ul>
+      </div>
+    </div> 
+    <div  class="modal fade" id="myModalPDF" role="dialog" ui-view>
+      <!-- <ng-include src="'/views/pdf/pdf.html'"></ng-include> -->
+    </div>
+  </main>
+
+</div>
+<script type="text/ng-template" id="warning-dialog.html">
+  <div class="modal-header">
+   <h3>Estás desocupado. ¡Haz algo!</h3>
+  </div>
+  <div idle-countdown="countdown" ng-init="countdown=5" class="modal-body">
+   <uib-progressbar max="5" value="5" animate="false" class="progress-striped active">Usted se desconectará en {{countdown}} segundo(s).</uib-progressbar>
+  </div>
+
+</script>
+<script type="text/ng-template" id="timedout-dialog.html">
+ <div class="modal-content">
+    <div class="modal-header">
+      <h3>¡Usted ha agotado el tiempo!</h3>
+    </div>
+    <div class="modal-body">
+      <p>stabas inactivo por demasiado tiempo. Normalmente, estarás desconectado, puedes volver a iniciar sesión si deseas.</p>
+    </div>
+  </div> 
+</script>

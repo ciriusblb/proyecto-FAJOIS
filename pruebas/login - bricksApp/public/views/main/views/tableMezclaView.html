@@ -1,0 +1,229 @@
+<div class="col-md-12" style="margin-top:20px;">
+     <div class="col-xs-offset-1">
+          <div class="row">
+              <span>Volumen de la mezcla en m3 por m2 de muro</span>
+              <div class="form-group row" >
+                  <span  class="col-xs-4 control-label">% de desperdicio</span>
+                  <div class="col-xs-2">
+                    <input type="text" class="form-control input-sm input"  ng-model="vm.itemEdit.mezcla_desperdicio">
+                  </div>%
+               </div>
+          </div>
+
+          <div class="row">
+              <div class=" form-group row">
+                  <span class="col-xs-3">Soga</span>
+                  <span class="col-xs-1">=</span>
+                  <div class="col-xs-2">
+                    <span  >{{vm.itemResult.m_soga[0]}}</span>
+                  </div>
+                  <div class="col-xs-2">
+                    <span  >{{vm.itemResult.m_soga[1]}}</span>
+                  </div> 
+                  <span >m3/m2</span>
+              </div>
+              <div class=" form-group row">
+                  <span class=" col-xs-3">Cabeza</span>
+                  <span class="col-xs-1">=</span>
+                  <div class="col-xs-2">
+                    <span  >{{vm.itemResult.m_cabeza[0]}}</span>
+                  </div>
+                  <div class="col-xs-2">
+                    <span  >{{vm.itemResult.m_cabeza[1]}}</span>
+                  </div> 
+                  <span >m3/m2</span>
+              </div>
+              <div class=" form-group row">
+                  <span class=" col-xs-3">Canto </span>
+                  <span class="col-xs-1">=</span>
+                  <div class="col-xs-2">
+                    <span  >{{vm.itemResult.m_canto[0]}}</span>
+                  </div>
+                  <div class="col-xs-2">
+                    <span  >{{vm.itemResult.m_canto[1]}}</span>
+                  </div> 
+                  <span >m3/m2</span>
+              </div>
+          </div>
+
+         <div class="row">
+            <label>NOTA:</label>
+            <p class="col-xs-offset-2">Para la determinación de v,m m olumen de mezcla por m3 en el componente "n" = Número de ladrillos por m2, se utilizo la cantidad de ladrillos sin desperdicio.</p>
+         </div>
+
+         
+         <div class="row">
+           <span >Cemento - Arena -Agua(m2 de muro)</span>
+           <div class=" row">
+               <span class="col-xs-4">Mezcla</span>
+               <span class="col-xs-1">1:</span>
+               <div class="col-xs-2">
+                  <input type="text" class="form-control input-sm"  ng-model="vm.itemEdit.mezcla">
+               </div>
+           </div>
+           <span>Densidad - Peso unitario</span>
+           <div class="form-group row">
+               <span class="col-xs-offset-1 col-xs-4">Cemento</span>
+               <div class="col-xs-2">
+                  <input type="text" class="form-control input-sm"  ng-model="vm.itemEdit.densidad_cemento">
+               </div>
+               <span>kg/m3</span>
+           </div>
+           <div class="form-group row">
+               <span class="col-xs-offset-1 col-xs-4">Arena</span>
+               <div class="col-xs-2">
+                  <input type="text" class="form-control input-sm" ng-model="vm.itemEdit.densidad_arena">
+               </div>
+               <span>kg/m3</span>
+           </div>
+           <div class="form-group row">
+               <span class="col-xs-offset-1 col-xs-4">Agua</span>
+               <div class="col-xs-2">
+                  <input type="text" class="form-control input-sm"  ng-model="vm.itemEdit.densidad_agua">
+               </div>
+               <span>kg/m3</span>
+           </div>
+           <span>Peso específico</span>
+           <div class="form-group row">
+               <span class="col-xs-offset-1 col-xs-4">Arena</span>
+               <div class="col-xs-2">
+                  <input type="text" class="form-control input-sm" ng-model="vm.itemEdit.peso_arena" >
+               </div>
+               <span>kg/m3</span>
+           </div>
+           <div class="form-group row">
+               <span class="col-xs-5">% de aire incorporado:</span>
+               <div class="col-xs-2">
+                  <input type="text" class="form-control input-sm"  ng-model="vm.itemEdit.aire">
+               </div>
+               <span>%</span>
+           </div>
+           <div class="form-group row">
+               <span class="col-xs-5">Relación de Agua/cemento:</span>
+               <div class="col-xs-2">
+                  <span>{{vm.itemResult.agua_cemento}}</span>
+               </div>
+           </div>
+         </div>
+
+         <div class="row">
+             <span>Analisis</span>
+             <div class="form-group row">
+                 <span class="col-xs-offset-1 col-xs-3">Cemento</span>
+                 <span class="col-xs-1">1</span>
+                 <span class="col-xs-2">p3 =</span>
+                 <div class="col-xs-2">
+                    <span >{{vm.itemResult.analisis[0]}}</span>
+                 </div>
+                 <span>kg</span>
+             </div>
+             <div class="form-group row">
+                 <span class="col-xs-offset-1 col-xs-3">Arena</span>
+                 <span class="col-xs-1">5</span>
+                 <span class="col-xs-2">p3 =</span>
+                 <div class="col-xs-2">
+                    <span >{{vm.itemResult.analisis[1]}}</span>
+                 </div>
+                 <span>kg</span>
+             </div>
+             <div class="form-group row">
+                 <div class="col-xs-offset-7 col-xs-2">
+                    <span >{{vm.itemResult.analisis[2]}}</span>
+                 </div>
+                 <span>kg</span>
+             </div>
+         </div>
+
+         <div class="row">
+                 <span class="form-group row">Rendimiento de la mezcla</span>
+                 <div class="form-group row">
+                     <span class="col-xs-3">Cemento</span>
+                     <div class="col-xs-5" >
+                        <span >{{vm.itemResult.analisis[0]}} kg/ {{vm.itemEdit.densidad_cemento}} kg/m3</span>
+                     </div>
+                     <div class="col-xs-2">
+                        <span >{{vm.itemResult.rendimiento[0]}}</span>
+                     </div>
+                     <span>m3</span>
+                 </div>
+                 <div class="form-group row">
+                     <span class=" col-xs-3">Arena</span>
+                     <div class="col-xs-5" >
+                        <span >{{vm.itemResult.analisis[1]}} kg/ {{vm.itemEdit.densidad_arena}} kg/m3</span>
+                     </div>
+                     <div class="col-xs-2">
+                        <span >{{vm.itemResult.rendimiento[1]}}</span>
+                     </div>
+                     <span>m3</span>
+                 </div>
+                 <div class="form-group row">
+                     <span class="col-xs-3">Agua</span>
+                     <div class="col-xs-5">
+                        <span >({{vm.itemResult.analisis[0]}} kg x {{vm.itemResult.agua_cemento}})/{{vm.itemEdit.densidad_agua}} kg/m3</span>
+                     </div>
+                     <div class="col-xs-2">
+                        <span >{{vm.itemResult.rendimiento[2]}}</span>
+                     </div>
+                     <span>m3</span>
+                 </div>
+
+                 <div class="form-group row"> 
+                   <div class="col-xs-offset-8 col-xs-2">
+                     <span >{{vm.itemResult.rendimiento[3]}}</span>
+                   </div>
+                   <span>m3</span>
+                 </div>
+
+                 <div class="form-group row"> 
+                   <div class="col-xs-8">
+                     <span>Aire Incorporado</span>
+                   </div>
+                   <div class="col-xs-2">
+                     <span> {{vm.itemResult.rendimiento[4]}}</span>
+                   </div>
+                   <span>m3</span>
+                 </div>
+
+                 <div class="form-group row"> 
+                   <div class="col-xs-8">
+                     <span>Total</span>
+                   </div>
+                   <div class="col-xs-2">
+                     <span>{{vm.itemResult.rendimiento[5]}}</span>
+                   </div>
+                   <span>m3</span>
+                 </div>
+         </div>
+     <div class="container-fluid form-group thumbnail">
+      <table id="table" class="table table-striped">
+        <thead class="center">
+          <tr class="active">
+            <td rowspan="">Ladrillo</td>
+            <td rowspan="">Cemento bolsas</td>
+            <td rowspan="">Arena m3</td>
+            <td colspan="">Agua m3</td>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+              <td>Soga</td>
+              <td><span class="form-control input-sm">{{vm.itemResult.cemento[0]}}</span></td>
+              <td><span class="form-control input-sm">{{vm.itemResult.cemento[1]}}</span></td>
+              <td><span class="form-control input-sm">{{vm.itemResult.cemento[2]}}</span></td>
+          </tr>
+          <tr>
+            <td>Cabeza</td>
+            <td><span class="form-control input-sm">{{vm.itemResult.arena[0]}}</span></td>
+            <td><span class="form-control input-sm">{{vm.itemResult.arena[1]}}</span></td>
+            <td><span class="form-control input-sm">{{vm.itemResult.arena[2]}}</span></td>
+          </tr>
+          <tr>
+            <td>Canto</td>
+            <td><span class="form-control input-sm">{{vm.itemResult.agua[0]}}</span></td>
+            <td><span class="form-control input-sm">{{vm.itemResult.agua[1]}}</span></td>
+            <td><span class="form-control input-sm">{{vm.itemResult.agua[2]}}</span></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+</div>

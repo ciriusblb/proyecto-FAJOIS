@@ -1,0 +1,104 @@
+  <div class="form-group row" >
+    <label  class="col-xs-offset-1 col-xs-2 control-label">Nombre :</label>
+    <div class="col-xs-7">
+      <input type="text" class="form-control"  placeholder="Nombre Del Proyecto" ng-model="vm.itemEdit.descripcion">
+    </div>
+  </div>
+  <div class="form-group row" >
+    <span  class="col-xs-offset-2 col-xs-6 control-label">L  : Longitud del Ladrillo</span>
+    <div class="col-xs-2" >
+      <input type="text" class="form-control input-sm"  ng-model="vm.itemEdit.longitud">
+    </div>
+    <span>cm</span>
+  </div>
+
+  <div class="form-group row" >
+    <span for="inputName" class="col-xs-offset-2 col-xs-6 control-label">A : Ancho del Ladrillo</span>
+    <div class="col-xs-2">
+      <input type="text" class="form-control input-sm" id="inputEmail3" ng-model="vm.itemEdit.ancho">
+    </div>
+    <span>cm</span>
+  </div>
+
+  <div class="form-group row" >
+    <span for="inputName" class="col-xs-offset-2 col-xs-6 control-label">H : Altura del Ladrillo</span>
+    <div class="col-xs-2">
+      <input type="text" class="form-control input-sm" id="inputEmail3" ng-model="vm.itemEdit.altura">
+    </div>
+    <span>cm</span>
+  </div>
+
+  <div class="form-group row" >
+    <span for="inputName" class="col-xs-offset-2 col-xs-6 control-label">Jh: Espesor de la junta Horizontal</span>
+    <div class="col-xs-2">
+      <input type="text" class="form-control input-sm" id="inputEmail3" ng-model="vm.itemEdit.espesor_horizontal">
+    </div>
+    <span>cm</span>
+  </div>
+
+  <div class="form-group row" >
+    <span for="inputName" class="col-xs-offset-2 col-xs-6 control-label">Jv: Espesor de la junta Vertical</span>
+    <div class="col-xs-2">
+      <input type="text" class="form-control input-sm" id="inputEmail3" ng-model="vm.itemEdit.espesor_vertical">
+    </div>
+    <span>cm</span>
+  </div>
+
+  <div class="form-group row" >
+    <span for="inputName" class="col-xs-offset-2 col-xs-6 control-label">Porcentaje de Desperdicio</span>
+    <div class="col-xs-2">
+      <input type="text" class="form-control input-sm" id="inputEmail3" ng-model="vm.itemEdit.cantidad_desperdicio">
+    </div>
+    <span>cm</span>
+  </div>
+
+
+
+  <div class="form-group">
+
+    <div class=" form-group row">
+        <span class="col-xs-offset-1 col-xs-1">Soga</span>
+        <span class="col-xs-3">= largo por alto</span>
+        <span class="col-xs-1">=</span>
+        <div class="col-xs-1">
+          <span>{{vm.itemResult.c_soga[0]}}</span>
+        </div>
+        <span class="col-xs-1">Und</span>
+        <div class="col-xs-2">
+          <span>{{vm.itemResult.c_soga[1]}}</span>
+        </div> 
+        <span >Und</span>
+    </div>
+
+    <div class=" form-group row">
+        <span class="col-xs-offset-1 col-xs-1">Cabeza</span>
+        <span class="col-xs-3">= ancho por alto</span>
+        <span class="col-xs-1">=</span>
+        <div class="col-xs-1">
+          <span>{{vm.itemResult.c_cabeza[0]}}</span>
+        </div>
+        <span class="col-xs-1">Und</span>
+        <div class="col-xs-2">
+          <span>{{vm.itemResult.c_cabeza[1]}}</span>
+        </div> 
+        <span >Und</span>
+    </div>
+
+    <div class="form-group row">
+        <span class="col-xs-offset-1 col-xs-1">Canto</span>
+        <span class="col-xs-3">= largo por alto</span>
+        <span class="col-xs-1">=</span>
+        <div class="col-xs-1">
+          <span>{{vm.itemResult.c_canto[0]}}</span>
+        </div>
+        <span class="col-xs-1">Und</span>
+        <div class="col-xs-2">
+          <span>{{vm.itemResult.c_canto[1]}}</span>
+        </div> 
+        <span >Und</span>
+    </div>
+    
+
+  </div>
+
+

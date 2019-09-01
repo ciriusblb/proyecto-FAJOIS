@@ -1,0 +1,42 @@
+
+ <li class="col-xs-1 col-md-1  list-group-item "  ng-if="vm.select==true"><input type="checkbox" ng-model="vm.check[vm.iniLim+$index]" class="list-group-item" ng-click="vm.see(nItem.id_data,vm.iniLim+$index)" ></li>
+ <li class="col-md-1 col-xs-2 list-group-item center" ng-class="{'active':vm.position==vm.iniLim+$index}"> {{vm.iniLim+$index+1}} </li>
+  <fieldset class=" list-group-item rowsItem container-fluid"    data-toggle="collapse" data-target="#{{nItem.item}}"  ng-click="vm.cambiar(vm.iniLim+$index)"  ui-sref="home.view ({idBricks:vm.iniLim+$index+1})" ng-class="{'active':vm.position==vm.iniLim+$index}">
+     {{nItem.descripcion}}
+     <span   ng-click="vm.cambiar(vm.iniLim+$index)"
+     style="background-color: red;">
+        <span ng-if="nItem.state==0"   class="glyphicon glyphicon-chevron-down"></span>
+        <span ng-if="nItem.state==1"  class="glyphicon glyphicon-chevron-up"></span>
+    </span>
+  </fieldset> 
+
+<div  class="collapse tablas" id="{{nItem.item}}"  >
+  <div class="col-xs-10 col-md-11 col-xs-offset-2 col-md-offset-1 list-inline nopadding list-group-item">
+    <li class="col-xs-4 col-md-4" >Cantidad de ladrillos</li>
+     <li class="col-xs-2 col-md-2 ">Und</li>
+     <li class="col-xs-2  col-md-2 ">{{vm.items[0].cantidad[0]}}</li>
+     <li class="col-xs-2  col-md-2 ">{{vm.items[0].cantidad[1]}}</li>
+     <li class="col-xs-2  col-md-2 ">{{vm.items[0].cantidad[2]}}</li>
+  </div>
+  <div class=" col-xs-10 col-md-11 col-xs-offset-2 col-md-offset-1 list-inline nopadding list-group-item">
+    <li class="col-xs-4 col-md-4" >Cemento</li>
+     <li class="col-xs-2 col-md-2">Bolsas</li>
+     <li class="col-xs-2 col-md-2">{{vm.items[0].cemento[0]}}</li>
+     <li class="col-xs-2 col-md-2">{{vm.items[0].cemento[1]}}</li>
+     <li class="col-xs-2 col-md-2">{{vm.items[0].cemento[2]}}</li>
+  </div>
+  <div class=" col-xs-10  col-md-11 col-xs-offset-2 col-md-offset-1 list-inline nopadding list-group-item">
+    <li class=" col-xs-4 col-md-4" >Arena</li>
+     <li class="col-xs-2 col-md-2">m3</li>
+     <li class="col-xs-2 col-md-2">{{vm.items[0].arena[0]}}</li>
+     <li class="col-xs-2 col-md-2">{{vm.items[0].arena[1]}}</li>
+     <li class="col-xs-2 col-md-2">{{vm.items[0].arena[2]}}</li>
+  </div>
+  <div class="col-xs-10 col-md-11 col-xs-offset-2 col-md-offset-1 list-inline nopadding list-group-item" >
+    <li class="col-xs-4 col-md-4" >Agua</li>
+     <li class="col-xs-2 col-md-2">m3</li>
+     <li class="col-xs-2 col-md-2">{{vm.items[0].agua[0]}}</li>
+     <li class="col-xs-2 col-md-2">{{vm.items[0].agua[1]}}</li>
+     <li class="col-xs-2 col-md-2">{{vm.items[0].agua[2]}}</li>
+  </div>
+</div>

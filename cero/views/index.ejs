@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= title %></title>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+
+<script src="FileSaver.js"></script>
+
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+    <link rel='stylesheet' href='/stylesheets/index.css' />
+    <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/ionicons/2.0.1/css/ionicons.css'/>
+    <script src="/bower_components/angular/angular.js"></script>
+    <script src="javascripts/control.js"></script>
+
+    <meta charset='utf-8'>
+    <title>my first pdfmake example</title>
+	    <!-- <script src='build/pdfmake.min.js'></script>
+	    <script src='build/vfs_fonts.js'></script> -->
+  </head>
+  <body ng-app="app" ng-controller="Ctrl">
+    
+    <div class="container">
+      <div class="setting">
+
+
+      
+      <div class="header">
+
+<div class="cabeza">
+
+      <div class="imagenes">
+      <input type="checkbox" ng-model="checkboxModel.detalle[0].value">
+            <input class="log" type="image" src="images/firma.jpg">
+      </div>
+      <div>
+        <div class="cabecera" ng-repeat="d in cabecera.detalle">
+          <span ng-if="d.state == 1"><input type="text" ng-model="d.titulo" ng-keypress=" "></span>
+          <span ng-if="d.state == 0" ng-dblclick="cambiar()">{{d.titulo}}</span>
+          <div class="remove2" >
+                <input type="checkbox" ng-model="d.submit"  name="">
+          </div>
+        </div>
+      </div>
+         <div class="imagenes">
+         <input type="checkbox" ng-model="checkboxModel.detalle[1].value">
+            <input class="log" type="image" src="images/firma.jpg">
+      </div>
+
+</div>
+
+        <div class="titulo_principal">
+          {{cabecera.titulo_principal}}
+        </div>
+        
+        <div class="descrip_cab">
+          <input ng-model="cabecera.titles[0].submit" type="checkbox"><div><label for="">Nombre de presupuesto: </label><span>{{cabecera.titles[0].text}}</span></div>
+          <input ng-model="cabecera.titles[1].submit" type="checkbox"><div><label for="">Sub-presupuesto: </label><span>{{cabecera.titles[1].text}}</span></div>
+          <input ng-model="cabecera.titles[2].submit" type="checkbox"><div><label for="">Profesional responsable: </label><span>{{cabecera.titles[2].text}}</span></div>
+          <input ng-model="cabecera.titles[3].submit" type="checkbox"><div><label for="">Lugar: </label><span>{{cabecera.titles[3].text}}</span></div>
+          <input ng-model="cabecera.titles[4].submit" type="checkbox"><div><label for="">Fecha: </label><span>{{cabecera.titles[4].text}}</span></div>
+        </div>
+
+      </div>
+      <div >
+        
+      </div>
+      <div class="footer">
+        <div class="box">
+
+
+            <div class="item" ng-repeat="item in firmas">
+              <div class="remove" ng-click="remove_firma()">
+                <i class="fa ion-ios-close-empty"></i>
+              </div>
+                <div ng-if="item.tipo == 1" class="type-one">
+                    <div class="firma">
+                      {{item.numero}}
+                    </div>
+                    <div class="detalle">
+                      <ul>
+                        <li ng-repeat="d in item.detalle">
+                          <span ng-if="d.state == 1"><input type="text" ng-model="d.name" ng-dblclick="cambiar2()"></span>
+                          <span ng-if="d.state == 0" ng-dblclick="cambiar()">{{d.name}}</span>
+                        </li>
+                      </ul>
+                    </div>
+                </div>
+                <div ng-if="item.tipo == 2" class="type-one">
+                    <div class="detalle">
+                      <input type="image" src="images/firma.jpg">
+                    </div>
+                </div>
+            </div>
+              <div class="plus" ng-click="plus()" ng-if="firmas.length < 4">
+                  <i class="fa ion-ios-plus-empty"></i>
+              </div>
+               <div class="plus" ng-click="agregar()" ng-if="firmas.length < 4">
+                  <i class="fa ion-ios-plus-empty"></i>
+              </div>
+              <div class="time">
+                <label>{{FromTime}}</label><input type="checkbox" ng-model="cabecera.tiempo[0].submit">
+                <label>{{FromDate}}</label><input type="checkbox" ng-model="cabecera.tiempo[1].submit">
+              </div>
+        </div>
+      </div>
+      <div class="reportes1">
+        <input type="checkbox" name="" ng-model="reportes.detalle[0].value" >
+        <input type="checkbox" name="" ng-model="reportes.detalle[1].value">
+        <input type="checkbox" name="" ng-model="reportes.detalle[2].value">
+        <input type="checkbox" name="" ng-model="reportes.detalle[3].value">
+        <input type="checkbox" name="" ng-model="reportes.detalle[4].value">
+        <input type="checkbox" name="" ng-model="reportes.detalle[5].value">
+      </div>
+      <div class="reportes2">
+        <label>RESUMEN GENERAL DE PRESUPUESTO</label>
+        <label>RESUMEN DEL PRESUPUESTO</label>
+        <label>LISTA Y PRECIOS DE INSUMOS </label>
+        <label>ANÁLISIS DE PRECIOS UNITARIOS</label>
+        <label>FORMULA POLINOMICA</label>
+        <label>TIEMPOS DE PROGRAMACIÓN</label>
+      </div>
+
+        <button type="button"  ng-click="enviar()"> REPORTAR </button>
+        <button type="button" ng-click="generate()">REPORTAR 2</button>
+        
+      </div>
+      <style>
+        ._menu{
+          display: flex;
+        }
+        ._menu li{
+          list-style: none;
+          color: #a2a2a2;
+          padding: 5px 10px;
+          cursor: pointer;
+        }
+        ._menu li + li{
+          border-left: 1px solid #ececec;
+        }
+        ._menu li.active{
+          color: #03A9F4;
+        }
+      </style>
+      <div class="vista">
+        <ul class="_menu">
+          <li ng-repeat="t in tabs.list" ng-click="tabs.select(t)" ng-class="{'active':t.key == tabs.view.key}">{{t.denomination}}</li>
+        </ul>
+        <iframe id='pdfV'></iframe>
+      </div>
+      <!--  
+      <div class="vista" ng-if="ruta!=''">
+        <iframe id='pdfV'></iframe>
+      </div> -->
+    </div>
+  </body>
+</html>
